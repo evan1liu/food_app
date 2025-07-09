@@ -6,7 +6,7 @@
     import Step5 from "./Step5.svelte";
     import Step6 from "./Step6.svelte";
     import Step7 from "./Step7.svelte";
-    
+
         // Example function to submit onboarding data
     async function submitOnboarding(onboardingData) {
         try {
@@ -31,3 +31,5 @@
         }
     }
 </script>
+
+<Step1 />
