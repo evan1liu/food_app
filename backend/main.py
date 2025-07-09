@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from pydantic import BaseModel
+from backend.routers import api_router
 
 app = FastAPI()
 
@@ -13,6 +14,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Include the API router
+app.include_router(api_router, prefix="/api")
 
 
 @app.get("/")

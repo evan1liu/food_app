@@ -1,0 +1,63 @@
+{
+    "dietary_restrictions": [
+      "Vegetarian",
+      "Vegan",
+      "Pescatarian",
+      "Flexitarian",
+      "Raw food diet",
+      "Paleo",
+      "Keto",
+      "Mediterranean diet"
+    ],
+    "religious_restrictions": [
+      "Halal",
+      "Kosher",
+      "Hindu vegetarian",
+      "Jain vegetarian",
+      "Buddhist vegetarian",
+      "Seventh-day Adventist",
+      "Mormon (no caffeine/alcohol)"
+    ],
+    "health_related_restrictions": [
+      "Gluten-free",
+      "Lactose intolerant",
+      "Low sodium",
+      "Diabetic-friendly",
+      "Low-fat",
+      "Low-carb",
+      "Heart-healthy",
+      "Kidney-friendly",
+      "FODMAP",
+      "Anti-inflammatory diet",
+      "Gastroparesis diet"
+    ],
+    "intolerances": [
+      "Lactose intolerance",
+      "Gluten sensitivity",
+      "Fructose intolerance",
+      "Histamine intolerance",
+      "Sulfite sensitivity",
+      "MSG sensitivity"
+    ],
+    "personal_preferences": [
+      "No red meat",
+      "No pork",
+      "No beef",
+      "Organic only",
+      "Non-GMO",
+      "Local/farm-to-table",
+      "No processed foods",
+      "No artificial sweeteners",
+      "No preservatives",
+      "Whole foods only"
+    ],
+    "texture_aversions": [
+      "No mushrooms",
+      "No onions",
+      "No tomatoes",
+      "No seafood",
+      "No spicy food",
+      "No slimy textures",
+      "No crunchy foods"
+    ]
+}
