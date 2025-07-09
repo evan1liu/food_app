@@ -1,53 +1,42 @@
 <script>
     /** @type {string[]} */
     export let selectedAllergies = [];
-    /** @type {string[]} */
-    let allergies = [];
 
     // Load allergies from backend
     async function loadAllergies() {
-        try {
-            const response = await fetch('http://127.0.0.1:8000/api/onboarding/get_allergies');
-            if (response.ok) {
-                allergies = await response.json();
-            } else {
-                console.error('Failed to load allergies');
-            }
-        } catch (error) {
-            console.error('Error loading allergies:', error);
+        const response = await fetch('http://127.0.0.1:8000/api/onboarding/get_allergies');
+        if (response.ok) {
+            return await response.json();
+        } else {
+            throw new Error('Could not load allergies. Please ensure the backend server is running.');
         }
     }
 
-    // Load allergies when component mounts
-    loadAllergies();
-  
-    /**
-     * @param {string} allergy
-     */
-    function toggleAllergy(allergy) {
-      if (selectedAllergies.includes(allergy)) {
-        selectedAllergies = selectedAllergies.filter(a => a !== allergy);
-      } else {
-        selectedAllergies = [...selectedAllergies, allergy];
-      }
-    }
+    let allergiesPromise = loadAllergies();
 
     /**
-     * @param {string[]} allergies
+     * @param {string[]} currentAllergies
      */
-    function gotoNextStep(allergies) {
-      console.log('Selected allergies:', allergies);
+    function gotoNextStep(currentAllergies) {
+      console.log('Selected allergies:', currentAllergies);
       // TODO: Navigate to next step or submit data
     }
-  </script>
-  
-  <h2>Select your allergies:</h2>
-  {#each allergies as allergy}
-    <label>
-      <input type="checkbox" bind:group={selectedAllergies} value={allergy} />
-      {allergy}
-    </label>
-  {/each}
-  
-  <button on:click={() => gotoNextStep(selectedAllergies)}>Next</button>
+</script>
+
+<h2>Select your allergies:</h2>
+
+{#await allergiesPromise}
+    <p>Loading allergies...</p>
+{:then allergies}
+    {#each allergies as allergy}
+        <label>
+            <input type="checkbox" bind:group={selectedAllergies} value={allergy} />
+            {allergy}
+        </label>
+    {/each}
+    <br/>
+    <button on:click={() => gotoNextStep(selectedAllergies)}>Next</button>
+{:catch error}
+    <p style="color: red;">{error.message}</p>
+{/await}
   
