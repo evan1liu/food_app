@@ -1,1 +1,1 @@
-<a href="/onboarding/Step2"><h1>Go to onboarding Page</h1></a>
+<a href="/onboarding"><h1>Go to onboarding Page</h1></a>
