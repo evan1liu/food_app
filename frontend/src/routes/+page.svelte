@@ -40,6 +40,8 @@
 
 <a href="/meals"><h1>Go to Meal Page</h1></a>
 
+<a href="/onboarding"><h1>Go to onboarding Page</h1></a>
+
 {#each meal_categories as meal_category}
     <button onclick={() => logCategoryInConsole(meal_category)}>{meal_category} Food</button>
 {/each}
