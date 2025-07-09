@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Step1 from "./Step1.svelte";
-    import Step2 from "./Step2.svelte";
+    import Step1 from "./onboarding/Step1.svelte";
+    import Step2 from "./onboarding/Step2.svelte";
     const meal_categories = ["Mexican", "Indian", "Chinese"]
     let name = $state()
     // Create a state object with multiple properties
@@ -42,7 +42,7 @@
 
 <a href="/meals"><h1>Go to Meal Page</h1></a>
 
-<a href="/onboarding"><h1>Go to onboarding Page</h1></a>
+<a href="/onboarding/Step2"><h1>Go to onboarding Page</h1></a>
 
 {#each meal_categories as meal_category}
     <button onclick={() => logCategoryInConsole(meal_category)}>{meal_category} Food</button>
