@@ -35,7 +35,7 @@
     }
 
     let onboardingData = $state({
-        food_restrictions: [],
+        food_restrictions: {},  // Changed from [] to {}
         allergies: [],
         nutrition_goals: [],
         money_to_spend_per_week: 0,
@@ -93,7 +93,7 @@
 
     <div class="content-area">
         {#if currentStep === 1}
-            <Step1 />
+            <Step1 bind:selectedRestrictions={onboardingData.food_restrictions} />
         {:else if currentStep === 2}
             <Step2 bind:selectedAllergies={onboardingData.allergies} />
         {:else if currentStep === 3}

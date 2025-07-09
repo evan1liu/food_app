@@ -40,7 +40,7 @@ class OnboardingRequest(BaseModel):
     money_to_spend_per_week: float
     allergies: list[str]
     nutrition_goals: list[str]
-    food_restrictions: list[str]
+    food_restrictions: dict[str, list[str]]  # Changed from list[str] to dict[str, list[str]]
     food_preferences: dict[str, str]
     address: str
     
