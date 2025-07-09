@@ -32,36 +32,73 @@
             throw error;
         }
     }
+
+    let onboardingData = $state({
+        food_restrictions: [],
+        allergies: [],
+        nutrition_goals: [],
+        money_to_spend_per_week: 0,
+        time_to_cook_per_day: 0,
+        food_preferences: {},
+        address: ''
+    });
+
+    $inspect(onboardingData);
 </script>
 
-{#if currentStep === 1}
-    <Step1 />
-{:else if currentStep === 2}
-    <Step2 />
-{:else if currentStep === 3}
-    <Step3 />
-{:else if currentStep === 4}
-    <Step4 />
-{:else if currentStep === 5}
-    <Step5 />
-{:else if currentStep === 6}
-    <Step6 />
-{:else if currentStep === 7}
-    <Step7 />
-{/if}
+<div class="onboarding-layout">
+    <div class="content-area">
+        {#if currentStep === 1}
+            <Step1 />
+        {:else if currentStep === 2}
+            <Step2 />
+        {:else if currentStep === 3}
+            <Step3 />
+        {:else if currentStep === 4}
+            <Step4 bind:weeklyGroceryBudget={onboardingData.money_to_spend_per_week} />
+        {:else if currentStep === 5}
+            <Step5 bind:timeToCookPerDay={onboardingData.time_to_cook_per_day} />
+        {:else if currentStep === 6}
+            <Step6 bind:foodPreferences={onboardingData.food_preferences} />
+        {:else if currentStep === 7}
+            <Step7 bind:address={onboardingData.address} />
+        {/if}
+    </div>
 
-<div class="button-container">
-    <button class="nav-button" onclick={() => currentStep--}>previous</button>
-    <button class="nav-button" onclick={() => currentStep++}>next</button>
+    <div class="button-container">
+        <button class="nav-button" onclick={() => currentStep--}>previous</button>
+        <button class="nav-button" onclick={() => currentStep++}>next</button>
+    </div>
 </div>
 
 <style>
+    .onboarding-layout {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .content-area {
+        flex: 1;
+        min-height: calc(100vh - 140px); /* Reserve space for buttons */
+        overflow-y: auto;
+        padding: 2rem;
+        padding-bottom: 1rem; /* Reduced bottom padding since buttons are separate */
+    }
+
     .button-container {
-        margin-top: 2rem;
-        padding: 1rem;
+        position: sticky;
+        bottom: 0;
+        background-color: white;
+        border-top: 1px solid #e0e0e0;
+        padding: 1rem 2rem;
         display: flex;
         justify-content: space-between;
         gap: 1rem;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
     }
 
     .nav-button {
