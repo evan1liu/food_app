@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Step1 from "./Step1.svelte";
+    import Step2 from "./Step2.svelte";
     const meal_categories = ["Mexican", "Indian", "Chinese"]
     let name = $state()
     // Create a state object with multiple properties

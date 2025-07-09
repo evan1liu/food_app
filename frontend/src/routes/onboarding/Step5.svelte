@@ -1,11 +1,25 @@
 <script>
     /** @type {string[]} */
     export let selectedAllergies = [];
-    const allergies = [
-      "Peanuts", "Tree nuts", "Milk", "Eggs", "Fish", "Shellfish",
-      "Wheat", "Soy", "Sesame", "Gluten", "Mustard", "Celery",
-      "Sulfites", "Lupin", "Molluscs"
-    ];
+    /** @type {string[]} */
+    let allergies = [];
+
+    // Load allergies from backend
+    async function loadAllergies() {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/onboarding/get_allergies');
+            if (response.ok) {
+                allergies = await response.json();
+            } else {
+                console.error('Failed to load allergies');
+            }
+        } catch (error) {
+            console.error('Error loading allergies:', error);
+        }
+    }
+
+    // Load allergies when component mounts
+    loadAllergies();
   
     /**
      * @param {string} allergy
@@ -16,6 +30,14 @@
       } else {
         selectedAllergies = [...selectedAllergies, allergy];
       }
+    }
+
+    /**
+     * @param {string[]} allergies
+     */
+    function gotoNextStep(allergies) {
+      console.log('Selected allergies:', allergies);
+      // TODO: Navigate to next step or submit data
     }
   </script>
   

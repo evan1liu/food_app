@@ -1,12 +1,17 @@
 [
-  "Milk",
-  "Eggs",
-  "Peanuts",
-  "Tree nuts",
-  "Fish",
+  "Peanuts", 
+  "Tree nuts", 
+  "Milk", 
+  "Eggs", 
+  "Fish", 
   "Shellfish",
-  "Wheat",
-  "Soy",
-  "Sesame",
-  "Corn"
+  "Wheat", 
+  "Soy", 
+  "Sesame", 
+  "Gluten", 
+  "Mustard", 
+  "Celery",
+  "Sulfites", 
+  "Lupin", 
+  "Molluscs"
 ]
