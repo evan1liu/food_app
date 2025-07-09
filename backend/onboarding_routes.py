@@ -33,7 +33,7 @@ async def get_food_restrictions():
 
 @onboarding_router.get("/get_food_preferences")
 async def get_food_preferences():
-    return {} # Placeholder
+    return food_preferences  # Changed from {} to food_preferences
 
 class OnboardingRequest(BaseModel):
     time_to_cook_per_day: float
