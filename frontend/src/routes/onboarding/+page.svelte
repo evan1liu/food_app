@@ -8,6 +8,7 @@
     import Step7 from "./Step7.svelte";
 
     let currentStep = $state(1);
+    const totalSteps = 7;
 
         // Example function to submit onboarding data
     async function submitOnboarding(onboardingData) {
@@ -43,17 +44,60 @@
         address: ''
     });
 
+    function nextStep() {
+        if (currentStep < totalSteps) {
+            currentStep++;
+        }
+    }
+
+    function previousStep() {
+        if (currentStep > 1) {
+            currentStep--;
+        }
+    }
+
+    function goToStep(step) {
+        if (step >= 1 && step <= totalSteps) {
+            currentStep = step;
+        }
+    }
+
     $inspect(onboardingData);
 </script>
 
 <div class="onboarding-layout">
+    <!-- Progress indicator -->
+    <div class="progress-container">
+        <div class="progress-header">
+            <h3>Getting to know you</h3>
+            <span class="step-counter">{currentStep} of {totalSteps}</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" style="width: {(currentStep / totalSteps) * 100}%"></div>
+        </div>
+        <div class="progress-dots">
+            {#each Array(totalSteps) as _, index}
+                <button
+                    class="progress-dot {index + 1 === currentStep ? 'active' : ''} {index + 1 < currentStep ? 'completed' : ''}"
+                    onclick={() => goToStep(index + 1)}
+                >
+                    {#if index + 1 < currentStep}
+                        ✓
+                    {:else}
+                        {index + 1}
+                    {/if}
+                </button>
+            {/each}
+        </div>
+    </div>
+
     <div class="content-area">
         {#if currentStep === 1}
             <Step1 />
         {:else if currentStep === 2}
-            <Step2 />
+            <Step2 bind:selectedAllergies={onboardingData.allergies} />
         {:else if currentStep === 3}
-            <Step3 />
+            <Step3 bind:selectedNutritionGoals={onboardingData.nutrition_goals} />
         {:else if currentStep === 4}
             <Step4 bind:weeklyGroceryBudget={onboardingData.money_to_spend_per_week} />
         {:else if currentStep === 5}
@@ -65,9 +109,28 @@
         {/if}
     </div>
 
-    <div class="button-container">
-        <button class="nav-button" onclick={() => currentStep--}>previous</button>
-        <button class="nav-button" onclick={() => currentStep++}>next</button>
+    <div class="navigation-container">
+        <button 
+            class="nav-button secondary" 
+            onclick={previousStep}
+            disabled={currentStep === 1}
+        >
+            <span class="button-icon">←</span>
+            Previous
+        </button>
+
+        <div class="nav-center">
+            <span class="step-info">Step {currentStep} of {totalSteps}</span>
+        </div>
+
+        <button 
+            class="nav-button primary" 
+            onclick={nextStep}
+            disabled={currentStep === totalSteps}
+        >
+            {currentStep === totalSteps ? 'Complete' : 'Next'}
+            <span class="button-icon">→</span>
+        </button>
     </div>
 </div>
 
@@ -78,49 +141,231 @@
         min-height: 100vh;
         max-width: 1200px;
         margin: 0 auto;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .progress-container {
+        background: white;
+        padding: 2rem;
+        border-bottom: 1px solid #e1e8ed;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .progress-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .progress-header h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2c3e50;
+        margin: 0;
+    }
+
+    .step-counter {
+        font-size: 1rem;
+        color: #6c757d;
+        font-weight: 500;
+        background: #f8f9fa;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        border: 1px solid #e1e8ed;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: #e1e8ed;
+        border-radius: 3px;
+        overflow: hidden;
+        margin-bottom: 1.5rem;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #007bff, #28a745);
+        border-radius: 3px;
+        transition: width 0.3s ease;
+    }
+
+    .progress-dots {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .progress-dot {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #e1e8ed;
+        background: white;
+        color: #6c757d;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .progress-dot:hover {
+        border-color: #007bff;
+        background: #e3f2fd;
+    }
+
+    .progress-dot.active {
+        border-color: #007bff;
+        background: #007bff;
+        color: white;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+    }
+
+    .progress-dot.completed {
+        border-color: #28a745;
+        background: #28a745;
+        color: white;
     }
 
     .content-area {
         flex: 1;
-        min-height: calc(100vh - 140px); /* Reserve space for buttons */
+        min-height: calc(100vh - 300px);
         overflow-y: auto;
         padding: 2rem;
-        padding-bottom: 1rem; /* Reduced bottom padding since buttons are separate */
+        background: transparent;
     }
 
-    .button-container {
+    .navigation-container {
         position: sticky;
         bottom: 0;
-        background-color: white;
-        border-top: 1px solid #e0e0e0;
-        padding: 1rem 2rem;
+        background: white;
+        border-top: 1px solid #e1e8ed;
+        padding: 1.5rem 2rem;
         display: flex;
         justify-content: space-between;
-        gap: 1rem;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
         z-index: 100;
     }
 
     .nav-button {
-        padding: 0.75rem 2rem;
-        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.875rem 2rem;
+        font-size: 1rem;
         font-weight: 600;
-        border: 2px solid #007bff;
-        border-radius: 8px;
-        background-color: #007bff;
-        color: white;
+        border: 2px solid;
+        border-radius: 10px;
         cursor: pointer;
         transition: all 0.2s ease;
-        min-width: 120px;
+        min-width: 140px;
+        justify-content: center;
     }
 
-    .nav-button:hover {
-        background-color: #0056b3;
+    .nav-button.primary {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        border-color: #007bff;
+        color: white;
+    }
+
+    .nav-button.primary:hover:not(:disabled) {
+        background: linear-gradient(135deg, #0056b3, #004085);
         border-color: #0056b3;
-        transform: translateY(-1px);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
     }
 
-    .nav-button:active {
-        transform: translateY(0);
+    .nav-button.secondary {
+        background: white;
+        border-color: #6c757d;
+        color: #6c757d;
+    }
+
+    .nav-button.secondary:hover:not(:disabled) {
+        background: #f8f9fa;
+        border-color: #495057;
+        color: #495057;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-button:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .button-icon {
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+    }
+
+    .nav-button:hover:not(:disabled) .button-icon {
+        transform: translateX(2px);
+    }
+
+    .nav-button.secondary:hover:not(:disabled) .button-icon {
+        transform: translateX(-2px);
+    }
+
+    .nav-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .step-info {
+        font-size: 0.9rem;
+        color: #6c757d;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+        .progress-container {
+            padding: 1.5rem 1rem;
+        }
+        
+        .progress-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .progress-dots {
+            gap: 0.5rem;
+        }
+        
+        .progress-dot {
+            width: 35px;
+            height: 35px;
+            font-size: 0.8rem;
+        }
+        
+        .content-area {
+            padding: 1.5rem 1rem;
+        }
+        
+        .navigation-container {
+            padding: 1rem;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .nav-center {
+            order: -1;
+        }
+        
+        .nav-button {
+            width: 100%;
+            max-width: 300px;
+        }
     }
 </style>
