@@ -1,20 +1,12 @@
 import requests
 import os
+from dotenv import load_dotenv
 
-# --- Test Setup ---
-# IMPORTANT: Replace "YOUR_GOOGLE_PLACES_API_KEY" with your actual API key.
-# For security, ideally, set this as an environment variable before running.
-# Example: In your terminal, before running the script:
-# export GOOGLE_PLACES_API_KEY="AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXX" (macOS/Linux)
-# $env:GOOGLE_PLACES_API_KEY="AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXX" (PowerShell)
-# set GOOGLE_PLACES_API_KEY=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXX (Command Prompt)
-# Alternatively, for quick local testing (but NOT for production!):
-# os.environ["GOOGLE_PLACES_API_KEY"] = "YOUR_GOOGLE_PLACES_API_KEY"
-
+load_dotenv()
 GOOGLE_PLACES_API_KEY = os.environ.get("GOOGLE_PLACES_API_KEY")
 
 # --- Your Function (copied from your input) ---
-def find_nearby_supermarkets(latitude, longitude, radius_meters=5000, keyword="supermarket"):
+def find_nearby_supermarkets(latitude, longitude, radius_meters=500, keyword="supermarket"):
     """
     Finds nearby supermarkets using Google Places API.
 
