@@ -42,10 +42,9 @@ class OnboardingRequest(BaseModel):
     nutrition_goals: list[str]
     food_restrictions: list[str]
     food_preferences: dict[str, str]
-    address: str
+    address: dict
     
 @onboarding_router.post("/submit_onboarding")  # Changed from GET to POST
 async def submit_onboarding(onboarding_data: OnboardingRequest):
-    # Process the onboarding data here
-    # For example, save to database, generate meal plan, etc.
+    
     return {"message": "Onboarding completed successfully", "data": onboarding_data} 
