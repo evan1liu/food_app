@@ -81,8 +81,8 @@ Follow these instructions to get the project up and running on your local machin
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/your-repository-name.git
-    cd your-repository-name
+    git clone https://github.com/your-username/food_app.git
+    cd food_app
     ```
 
 2.  **Set up the Backend:**
