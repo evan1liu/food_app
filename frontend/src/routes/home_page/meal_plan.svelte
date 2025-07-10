@@ -17,22 +17,46 @@
 	{#if meal_plan && meal_plan.length > 0}
 		<div class="meal-grid">
 			{#each meal_plan as meal}
-				<div class="meal-card" on:click={() => selectMeal(meal)} on:keydown={(e) => e.key === 'Enter' && selectMeal(meal)} role="button" tabindex="0">
-					<div class="meal-image-placeholder">
-						<div class="image-icon">🍽️</div>
-					</div>
-					<div class="meal-info">
-						<h3 class="meal-name">{meal.meal_name}</h3>
-						<div class="meal-meta">
-							<span class="meal-date">{meal.date_at_which_meal_should_be_cooked}</span>
-							<span class="meal-time">⏱️ {meal.time_to_prepare} min</span>
+				<div class="meal-card">
+					{#if meal.image_url}
+						<img src={meal.image_url} alt={`AI-generated view of ${meal.meal_name}`} class="recipe-image" />
+					{:else}
+						<div class="image-placeholder">
+							<span>No Image Available</span>
 						</div>
-						<div class="ingredients-preview">
-							{meal.ingredients.slice(0, 3).join(', ')}
-							{#if meal.ingredients.length > 3}
-								<span class="more-ingredients">+{meal.ingredients.length - 3} more</span>
-							{/if}
-						</div>
+					{/if}
+					<div class="meal-content">
+						<h3>{meal.meal_name}</h3>
+						<p><strong>Date:</strong> {meal.date_at_which_meal_should_be_cooked}</p>
+						<p><strong>Prep Time:</strong> {meal.time_to_prepare} minutes</p>
+
+						<h4>Ingredients</h4>
+						<ul>
+							{#each meal.ingredients as ingredient}
+								<li>{ingredient}</li>
+							{/each}
+						</ul>
+
+						<h4>Steps</h4>
+						<ol>
+							{#each meal.steps_to_prepare as step}
+								<li>{step}</li>
+							{/each}
+						</ol>
+
+						{#if meal.tips_and_tricks}
+							<h4>Tips & Tricks</h4>
+							<p>{meal.tips_and_tricks}</p>
+						{/if}
+
+						{#if meal.appliances_and_utensils && meal.appliances_and_utensils.length > 0}
+							<h4>Appliances & Utensils</h4>
+							<ul>
+								{#each meal.appliances_and_utensils as item}
+									<li>{item}</li>
+								{/each}
+							</ul>
+						{/if}
 					</div>
 				</div>
 			{/each}
@@ -114,50 +138,38 @@
 	
 	.meal-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 1rem;
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
 	}
 	
 	.meal-card {
 		background: #fff;
-		border: 1px solid #e0e0e0;
+		border: 1px solid #ddd;
 		border-radius: 12px;
-		overflow: hidden;
-		cursor: pointer;
-		transition: all 0.3s ease;
-		box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		overflow: hidden; /* Ensures image corners are rounded */
+		display: flex;
+		flex-direction: column;
 	}
-	
-	.meal-card:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-		border-color: #007bff;
+	.recipe-image {
+		width: 100%;
+		height: 250px;
+		object-fit: cover;
 	}
-	
-	.meal-image-placeholder {
-		height: 120px;
-		background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	.image-placeholder {
+		width: 100%;
+		height: 250px;
+		background-color: #f0f0f0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		position: relative;
+		color: #aaa;
 	}
-	
-	.image-icon {
-		font-size: 2.5rem;
-		opacity: 0.7;
+	.meal-content {
+		padding: 1.5rem;
 	}
-	
-	.meal-info {
-		padding: 1rem;
-	}
-	
-	.meal-name {
-		margin: 0 0 0.5rem 0;
-		font-size: 1.1rem;
-		font-weight: 600;
-		color: #333;
-		line-height: 1.3;
+	h3 {
+		margin-top: 0;
+		color: #444;
 	}
 	
 	.meal-meta {
