@@ -1,22 +1,57 @@
 <script>
-    import availableRestrictions from '$lib/data/food_restrictions.json';
-
     let {selectedRestrictions = $bindable()} = $props();
+    
+    // State for available restrictions and loading
+    let availableRestrictions = $state({});
+    let isLoading = $state(true);
+    let error = $state(null);
     
     // Track which categories are expanded
     let expandedCategories = $state(new Set());
 
-    // Initialize selectedRestrictions if not already set
-    if (!selectedRestrictions || typeof selectedRestrictions !== 'object') {
-        selectedRestrictions = {};
-    }
-
-    // Initialize empty arrays for each category if not already present
-    for (const category of Object.keys(availableRestrictions)) {
-        if (!selectedRestrictions[category]) {
-            selectedRestrictions[category] = [];
+    // Fetch food restrictions from backend
+    async function fetchFoodRestrictions() {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/onboarding/get_food_restrictions');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            availableRestrictions = data;
+            isLoading = false;
+        } catch (err) {
+            error = err.message;
+            isLoading = false;
         }
     }
+
+    // Fetch data when component mounts
+    $effect(() => {
+        fetchFoodRestrictions();
+    });
+
+    // Initialize selectedRestrictions when availableRestrictions is loaded
+    $effect(() => {
+        if (!isLoading && availableRestrictions && Object.keys(availableRestrictions).length > 0) {
+            // Initialize selectedRestrictions if not already set
+            if (!selectedRestrictions() || typeof selectedRestrictions() !== 'object') {
+                selectedRestrictions({});
+            }
+
+            // Initialize empty arrays for each category if not already present
+            const current = selectedRestrictions();
+            let needsUpdate = false;
+            for (const category of Object.keys(availableRestrictions)) {
+                if (!current[category]) {
+                    current[category] = [];
+                    needsUpdate = true;
+                }
+            }
+            if (needsUpdate) {
+                selectedRestrictions({...current});
+            }
+        }
+    });
 
     // Toggle category expansion
     /** @param {string} category */
@@ -41,18 +76,20 @@
      * @param {string} restriction 
      */
     function toggleRestriction(category, restriction) {
-        if (!selectedRestrictions[category]) {
-            selectedRestrictions[category] = [];
+        const current = selectedRestrictions();
+        if (!current[category]) {
+            current[category] = [];
         }
         
-        const currentSelections = selectedRestrictions[category];
+        const currentSelections = current[category];
         if (currentSelections.includes(restriction)) {
             // Remove if already selected
-            selectedRestrictions[category] = currentSelections.filter(/** @param {string} item */ item => item !== restriction);
+            current[category] = currentSelections.filter(/** @param {string} item */ item => item !== restriction);
         } else {
             // Add if not selected
-            selectedRestrictions[category] = [...currentSelections, restriction];
+            current[category] = [...currentSelections, restriction];
         }
+        selectedRestrictions({...current});
     }
 
     // Check if a food item is selected
@@ -61,13 +98,13 @@
      * @param {string} restriction 
      */
     function isRestrictionSelected(category, restriction) {
-        return selectedRestrictions[category]?.includes(restriction) || false;
+        return selectedRestrictions()?.[category]?.includes(restriction) || false;
     }
 
     // Get selection count for a category
     /** @param {string} category */
     function getCategorySelectionCount(category) {
-        return selectedRestrictions[category]?.length || 0;
+        return selectedRestrictions()?.[category]?.length || 0;
     }
 </script>
 
@@ -75,59 +112,70 @@
     <h2>Select Your Food Restrictions</h2>
     <p>Click on categories to explore and select any applicable restrictions:</p>
 
-    <div class="categories-container">
-        {#each Object.entries(availableRestrictions) as [category, restrictions]}
-            <div class="category-wrapper">
-                <!-- Category Tag -->
-                <button 
-                    class="category-tag {isCategoryExpanded(category) ? 'expanded' : ''}"
-                    onclick={() => toggleCategory(category)}
-                >
-                    <span class="category-name">{category.replace(/_/g, ' ')}</span>
-                    <span class="selection-count">
-                        {#if getCategorySelectionCount(category) > 0}
-                            ({getCategorySelectionCount(category)})
-                        {/if}
-                    </span>
-                    <span class="expand-icon">
-                        {isCategoryExpanded(category) ? '▼' : '▶'}
-                    </span>
-                </button>
+    {#if isLoading}
+        <div class="loading">
+            <p>Loading dietary restrictions...</p>
+        </div>
+    {:else if error}
+        <div class="error">
+            <p>Error loading dietary restrictions: {error}</p>
+            <button onclick={() => fetchFoodRestrictions()}>Try Again</button>
+        </div>
+    {:else}
+        <div class="categories-container">
+            {#each Object.entries(availableRestrictions) as [category, restrictions]}
+                <div class="category-wrapper">
+                    <!-- Category Tag -->
+                    <button 
+                        class="category-tag {isCategoryExpanded(category) ? 'expanded' : ''}"
+                        onclick={() => toggleCategory(category)}
+                    >
+                        <span class="category-name">{category.replace(/_/g, ' ')}</span>
+                        <span class="selection-count">
+                            {#if getCategorySelectionCount(category) > 0}
+                                ({getCategorySelectionCount(category)})
+                            {/if}
+                        </span>
+                        <span class="expand-icon">
+                            {isCategoryExpanded(category) ? '▼' : '▶'}
+                        </span>
+                    </button>
 
-                <!-- Expanded Food Items -->
-                {#if isCategoryExpanded(category)}
-                    <div class="restriction-items-container">
-                        {#each restrictions as restriction}
-                            <button 
-                                class="restriction-item-tag {isRestrictionSelected(category, restriction) ? 'selected' : ''}"
-                                onclick={() => toggleRestriction(category, restriction)}
-                            >
-                                {restriction}
-                            </button>
-                        {/each}
-                    </div>
-                {/if}
-            </div>
-        {/each}
-    </div>
-
-    <!-- Summary of selections -->
-    {#if Object.values(selectedRestrictions).some(selections => selections.length > 0)}
-        <div class="summary">
-            <h3>Your Selections:</h3>
-            <div class="summary-tags">
-                {#each Object.entries(selectedRestrictions) as [category, selections]}
-                    {#if selections.length > 0}
-                        <div class="summary-category">
-                            <span class="summary-category-name">{category.replace(/_/g, ' ')}:</span>
-                            {#each selections as selection}
-                                <span class="summary-item-tag">{selection}</span>
+                    <!-- Expanded Food Items -->
+                    {#if isCategoryExpanded(category)}
+                        <div class="restriction-items-container">
+                            {#each restrictions as restriction}
+                                <button 
+                                    class="restriction-item-tag {isRestrictionSelected(category, restriction) ? 'selected' : ''}"
+                                    onclick={() => toggleRestriction(category, restriction)}
+                                >
+                                    {restriction}
+                                </button>
                             {/each}
                         </div>
                     {/if}
-                {/each}
-            </div>
+                </div>
+            {/each}
         </div>
+
+        <!-- Summary of selections -->
+        {#if selectedRestrictions() && Object.values(selectedRestrictions()).some(selections => selections.length > 0)}
+            <div class="summary">
+                <h3>Your Selections:</h3>
+                <div class="summary-tags">
+                    {#each Object.entries(selectedRestrictions()) as [category, selections]}
+                        {#if selections.length > 0}
+                            <div class="summary-category">
+                                <span class="summary-category-name">{category.replace(/_/g, ' ')}:</span>
+                                {#each selections as selection}
+                                    <span class="summary-item-tag">{selection}</span>
+                                {/each}
+                            </div>
+                        {/if}
+                    {/each}
+                </div>
+            </div>
+        {/if}
     {/if}
 </div>
 
@@ -259,5 +307,31 @@
         margin-right: 0.5rem;
         margin-bottom: 0.5rem;
         font-size: 0.9rem;
+    }
+
+    .loading {
+        text-align: center;
+        padding: 2rem;
+        color: #6c757d;
+    }
+
+    .error {
+        text-align: center;
+        padding: 2rem;
+        color: #dc3545;
+    }
+
+    .error button {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .error button:hover {
+        background-color: #c82333;
     }
 </style>
