@@ -18,7 +18,7 @@
     // Example function to submit onboarding data
     async function submitOnboarding(onboardingData) {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/submit_onboarding', {
+            const response = await fetch('http://127.0.0.1:8000/api/onboarding/submit_onboarding', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -95,6 +95,12 @@
     }
 
     $inspect(onboardingData);
+    $inspect(currentStep);
+
+    // Add effect to log step changes
+    $effect(() => {
+        console.log('Current step changed to:', currentStep);
+    });
 </script>
 
 <div class="onboarding-layout">
@@ -135,7 +141,7 @@
                 </button>
             </div>
         {:else if currentStep === 1}
-            <Step1 />
+            <Step1 bind:selectedRestrictions={onboardingData.food_restrictions} />
         {:else if currentStep === 2}
             <Step2 bind:selectedAllergies={onboardingData.allergies} />
         {:else if currentStep === 3}
