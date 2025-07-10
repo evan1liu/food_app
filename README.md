@@ -69,7 +69,53 @@ This project is built with a modern, powerful stack to deliver a seamless user e
 
 ## 🚀 Getting Started
 
-*(Instructions on how to set up and run the project locally will go here.)*
+Follow these instructions to get the project up and running on your local machine.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/) (v18 or higher)
+- [Python](https://www.python.org/downloads/) (v3.9 or higher)
+- [pip](https://pip.pypa.io/en/stable/installation/)
+
+### Installation & Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/your-repository-name.git
+    cd your-repository-name
+    ```
+
+2.  **Set up the Backend:**
+    ```bash
+    cd backend
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    pip install -r ../requirements.txt
+    ```
+
+3.  **Set up the Frontend:**
+    ```bash
+    cd ../frontend
+    npm install
+    ```
+
+### Running the Application
+
+1.  **Start the Backend Server:**
+    
+    Open a terminal, navigate to the `backend` directory, and run:
+    ```bash
+    uvicorn main:app --reload
+    ```
+    The backend API will be running at `http://127.0.0.1:8000`.
+
+2.  **Start the Frontend Development Server:**
+
+    Open a second terminal, navigate to the `frontend` directory, and run:
+    ```bash
+    npm run dev
+    ```
+    The application will be accessible at `http://localhost:5173`.
 
 ---
 
