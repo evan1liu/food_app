@@ -1,9 +1,19 @@
 import requests
 import os
 
-# Get your API key from an environment variable (best practice!)
+# --- Test Setup ---
+# IMPORTANT: Replace "YOUR_GOOGLE_PLACES_API_KEY" with your actual API key.
+# For security, ideally, set this as an environment variable before running.
+# Example: In your terminal, before running the script:
+# export GOOGLE_PLACES_API_KEY="AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXX" (macOS/Linux)
+# $env:GOOGLE_PLACES_API_KEY="AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXX" (PowerShell)
+# set GOOGLE_PLACES_API_KEY=AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXX (Command Prompt)
+# Alternatively, for quick local testing (but NOT for production!):
+# os.environ["GOOGLE_PLACES_API_KEY"] = "YOUR_GOOGLE_PLACES_API_KEY"
+
 GOOGLE_PLACES_API_KEY = os.environ.get("GOOGLE_PLACES_API_KEY")
 
+# --- Your Function (copied from your input) ---
 def find_nearby_supermarkets(latitude, longitude, radius_meters=5000, keyword="supermarket"):
     """
     Finds nearby supermarkets using Google Places API.
@@ -19,7 +29,7 @@ def find_nearby_supermarkets(latitude, longitude, radius_meters=5000, keyword="s
               Includes 'name', 'place_id', 'vicinity' (address), 'lat', 'lng'.
     """
     if not GOOGLE_PLACES_API_KEY:
-        raise ValueError("GOOGLE_PLACES_API_KEY environment variable not set.")
+        raise ValueError("GOOGLE_PLACES_API_KEY environment variable not set. Please set it or uncomment the os.environ line for testing.")
 
     base_url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
     params = {
@@ -60,14 +70,24 @@ def find_nearby_supermarkets(latitude, longitude, radius_meters=5000, keyword="s
         print(f"An unexpected error occurred: {e}")
         return []
 
-# Example usage (replace with actual user lat/lng)
-user_lat = 43.0722  # Example: Madison, WI latitude
-user_lng = -89.4008 # Example: Madison, WI longitude
+# --- Test Input and Execution ---
 
-# It's good to dynamically set environment variables for local testing:
-# import os
-# os.environ["GOOGLE_PLACES_API_KEY"] = "YOUR_ACTUAL_API_KEY_HERE"
+# 1. Coordinates for Downtown Madison, Wisconsin (near the Capitol)
+# These are slightly adjusted from the previous context to a central point for good results.
+user_lat = 43.0750
+user_lng = -89.3840
 
-# nearby_stores = find_nearby_supermarkets(user_lat, user_lng)
-# for store in nearby_stores:
-#     print(f"Name: {store['name']}, Address: {store['address']}")
+print(f"Searching for supermarkets near Latitude: {user_lat}, Longitude: {user_lng}")
+
+nearby_stores = find_nearby_supermarkets(user_lat, user_lng, radius_meters=3000) # Search within 3km
+
+if nearby_stores:
+    print("\n--- Found Supermarkets ---")
+    for i, store in enumerate(nearby_stores):
+        print(f"{i+1}. Name: {store.get('name', 'N/A')}")
+        print(f"   Address: {store.get('address', 'N/A')}")
+        print(f"   Coordinates: ({store.get('lat', 'N/A')}, {store.get('lng', 'N/A')})")
+        print(f"   Place ID: {store.get('place_id', 'N/A')}")
+        print("-" * 30)
+else:
+    print("\nNo supermarkets found or an error occurred. Please check your API key and network connection.")
