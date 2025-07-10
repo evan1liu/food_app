@@ -1,4 +1,5 @@
 <script>
+    import { goto } from '$app/navigation';
     import Step1 from "./Step1.svelte";
     import Step2 from "./Step2.svelte";
     import Step3 from "./Step3.svelte";
@@ -80,8 +81,10 @@
                 isCompleted = true;
                 console.log('Onboarding completed with ID:', result.submission_id);
                 
-                // You could redirect to a success page or show a success message
-                // For now, we'll just log it
+                // Automatically redirect to home page after a short delay
+                setTimeout(() => {
+                    goto('/home_page');
+                }, 2000); // 2 second delay to show success message
                 
             } catch (error) {
                 submitError = error.message;
@@ -136,8 +139,9 @@
                 <div class="success-icon">🎉</div>
                 <h2>Welcome aboard!</h2>
                 <p>Your onboarding has been completed successfully. We're excited to help you on your food journey!</p>
-                <button class="get-started-button" onclick={() => window.location.href = '/meals'}>
-                    Get Started
+                <p style="font-size: 0.9rem; color: #6c757d;">You'll be redirected to your meal plan in a moment...</p>
+                <button class="get-started-button" onclick={() => goto('/home_page')}>
+                    Go to Meal Plan Now
                 </button>
             </div>
         {:else if currentStep === 1}

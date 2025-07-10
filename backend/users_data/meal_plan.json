@@ -1,254 +1,524 @@
 [
   {
-    "meal_name": "High-Protein Scrambled Eggs & Spinach",
-    "date_at_which_meal_should_be_cooked": "Breakfast (e.g., Day 1, 3, 5)",
-    "ingredients": [
-      "3 large eggs",
-      "1 cup baby spinach",
-      "1 tbsp olive oil",
-      "Salt and pepper to taste",
-      "1 oz shredded cheese (optional)"
-    ],
-    "time_to_prepare": 10,
-    "steps_to_prepare": [
-      "1. Crack eggs into a bowl, add a splash of water or milk, and whisk until frothy. Season with salt and pepper.",
-      "2. Heat olive oil in a non-stick skillet over medium heat.",
-      "3. Add the spinach and cook for 1-2 minutes until wilted.",
-      "4. Pour the egg mixture over the spinach.",
-      "5. Gently stir and fold the eggs as they cook until they reach your desired doneness (about 3-4 minutes).",
-      "6. If using, sprinkle cheese over the top during the last minute of cooking."
-    ],
-    "tips_and_tricks": "For extra protein, add a scoop of unflavored protein powder to the eggs before whisking. Serve with a slice of whole-wheat toast if it fits your macros.",
-    "appliances_and_utensils": [
-      "Non-stick skillet",
-      "Spatula",
-      "Bowl",
-      "Whisk"
-    ]
-  },
-  {
-    "meal_name": "Quick Toasted Bagel with Cream Cheese",
-    "date_at_which_meal_should_be_cooked": "Breakfast (e.g., Day 2, 4, 6)",
-    "ingredients": [
-      "1 bagel",
-      "2 tbsp cream cheese"
-    ],
-    "time_to_prepare": 5,
-    "steps_to_prepare": [
-      "1. Slice the bagel in half.",
-      "2. Toast the bagel to your desired level of crispness using a toaster or in a pan.",
-      "3. Spread cream cheese evenly on both halves of the warm bagel.",
-      "4. Serve immediately."
-    ],
-    "tips_and_tricks": "Choose whole wheat bagels for more fiber and sustained energy. Add a sprinkle of everything bagel seasoning for extra flavor.",
-    "appliances_and_utensils": [
-      "Toaster or pan",
-      "Knife"
-    ]
-  },
-  {
-    "meal_name": "Speedy Ground Turkey Burrito Bowls",
+    "meal_name": "Protein Smoothie Bowl",
     "date_at_which_meal_should_be_cooked": "Day 1",
     "ingredients": [
-      "1 lb ground turkey",
-      "1 packet taco seasoning",
-      "1 tbsp olive oil",
-      "1 can (15oz) black beans, rinsed",
-      "2 cups cooked rice",
-      "1 cup shredded lettuce",
-      "1/2 cup shredded Mexican cheese",
-      "1/2 cup salsa"
-    ],
-    "time_to_prepare": 20,
-    "steps_to_prepare": [
-      "1. Heat olive oil in a large skillet over medium-high heat. Add ground turkey and cook, breaking it apart, until no longer pink (about 7-8 minutes).",
-      "2. Drain any excess fat. Stir in the taco seasoning and 1/4 cup of water. Simmer for 3-4 minutes until the sauce has thickened.",
-      "3. While turkey cooks, heat black beans and cooked rice in the microwave.",
-      "4. Assemble your bowls: Divide the rice among bowls, then top with the cooked turkey, black beans, shredded lettuce, cheese, and salsa.",
-      "5. Save half of the cooked turkey for Turkey Tacos later in the week."
-    ],
-    "tips_and_tricks": "To save time, use pre-cooked rice pouches. This bowl is great for meal prep; store components separately and assemble before eating.",
-    "appliances_and_utensils": [
-      "Large skillet",
-      "Spatula",
-      "Microwave-safe bowls",
-      "Can opener"
-    ]
-  },
-  {
-    "meal_name": "Quick Chicken Teriyaki & Veggie Bowl",
-    "date_at_which_meal_should_be_cooked": "Day 2",
-    "ingredients": [
-      "1 lb chicken breast, cut into bite-sized pieces",
-      "1 tbsp olive oil",
-      "2 cups frozen stir-fry vegetable mix",
-      "1/2 cup teriyaki sauce",
-      "2 cups cooked rice"
-    ],
-    "time_to_prepare": 18,
-    "steps_to_prepare": [
-      "1. Heat olive oil in a wok or large skillet over high heat.",
-      "2. Add the chicken pieces and stir-fry for 5-7 minutes until golden and cooked through.",
-      "3. Add the frozen vegetables to the skillet and cook for another 4-5 minutes, stirring frequently, until crisp-tender.",
-      "4. Reduce heat to low, pour in the teriyaki sauce, and stir to coat everything evenly. Let it simmer for 1-2 minutes.",
-      "5. Serve immediately over a bed of warm rice.",
-      "6. Set aside about 1/3 of the chicken and veggies for the Upgraded Ramen meal."
-    ],
-    "tips_and_tricks": "For a flavor boost, add minced garlic or ginger with the chicken. A sprinkle of sesame seeds on top adds a nice touch.",
-    "appliances_and_utensils": [
-      "Wok or large skillet",
-      "Spatula",
-      "Knife",
-      "Cutting board"
-    ]
-  },
-  {
-    "meal_name": "Upgraded Instant Ramen",
-    "date_at_which_meal_should_be_cooked": "Day 3",
-    "ingredients": [
-      "1 packet instant ramen",
-      "1 large egg",
-      "1 cup leftover Teriyaki Chicken",
-      "1/2 cup baby spinach"
-    ],
-    "time_to_prepare": 12,
-    "steps_to_prepare": [
-      "1. In a small pot, bring 2 cups of water to a boil. Gently add the egg and cook for 7 minutes for a jammy yolk. Remove with a slotted spoon and run under cold water.",
-      "2. In the same pot, cook the instant ramen noodles according to package directions, adding the flavor packet.",
-      "3. During the last minute of cooking, stir in the baby spinach until it wilts.",
-      "4. Pour the ramen and broth into a bowl. Top with the leftover teriyaki chicken (reheated).",
-      "5. Peel the soft-boiled egg, slice it in half, and add it to the bowl."
-    ],
-    "tips_and_tricks": "This meal is designed to use leftovers, making it extremely fast. You can add other leftover veggies as well.",
-    "appliances_and_utensils": [
-      "Small pot",
-      "Slotted spoon",
-      "Bowl"
-    ]
-  },
-  {
-    "meal_name": "Quick 'General Tso's' Chicken Stir-fry",
-    "date_at_which_meal_should_be_cooked": "Day 4",
-    "ingredients": [
-      "1 lb chicken breast, cut into bite-sized pieces",
-      "1 tbsp olive oil",
-      "1/2 onion, sliced",
-      "1/2 bell pepper, sliced",
-      "1/2 cup General Tso's sauce",
-      "2 cups cooked rice"
-    ],
-    "time_to_prepare": 20,
-    "steps_to_prepare": [
-      "1. Heat olive oil in a large skillet over medium-high heat.",
-      "2. Add the chicken pieces and cook until golden brown and cooked through, about 5-7 minutes.",
-      "3. Add the sliced onion and bell pepper to the skillet and cook for 4-5 minutes until they begin to soften.",
-      "4. Pour the General Tso's sauce over the chicken and vegetables. Stir to coat and allow to simmer for 2-3 minutes until the sauce thickens slightly.",
-      "5. Serve hot over freshly cooked rice."
-    ],
-    "tips_and_tricks": "Use a bag of frozen stir-fry vegetables instead of fresh onion and pepper to save even more prep time.",
-    "appliances_and_utensils": [
-      "Large skillet",
-      "Spatula",
-      "Knife",
-      "Cutting board"
-    ]
-  },
-  {
-    "meal_name": "20-Minute Turkey Tacos",
-    "date_at_which_meal_should_be_cooked": "Day 5",
-    "ingredients": [
-      "Leftover cooked ground turkey from Day 1",
-      "6-8 small flour tortillas",
-      "1 cup shredded lettuce",
-      "1/2 cup shredded Mexican cheese",
-      "1/2 cup salsa"
+      "1 ripe banana",
+      "1/2 cup Greek yogurt",
+      "1/2 cup frozen spinach",
+      "1 scoop plant-based protein powder",
+      "1/4 cup milk or water",
+      "Toppings: 1 tbsp chia seeds, sliced banana"
     ],
     "time_to_prepare": 10,
     "steps_to_prepare": [
-      "1. Reheat the leftover seasoned ground turkey in a skillet or the microwave until hot.",
-      "2. Warm the flour tortillas in a dry pan for 30 seconds per side, or in the microwave for 30-45 seconds.",
-      "3. Assemble the tacos: Spoon the warm turkey into the tortillas.",
-      "4. Top with shredded lettuce, cheese, and salsa.",
-      "5. Serve immediately."
+      "1. Combine banana, Greek yogurt, frozen spinach, protein powder, and milk/water in a blender.",
+      "2. Blend until smooth and creamy. Add more liquid if needed to reach desired consistency.",
+      "3. Pour into a bowl.",
+      "4. Top with chia seeds and extra sliced banana."
     ],
-    "tips_and_tricks": "Add a dollop of Greek yogurt instead of sour cream for a high-protein, healthier alternative.",
+    "tips_and_tricks": "Use a frozen banana for a thicker, ice-cream-like texture. You can add a tablespoon of peanut butter for extra protein and flavor.",
     "appliances_and_utensils": [
-      "Skillet or microwave",
-      "Tongs"
-    ]
+      "Blender",
+      "Bowl",
+      "Spoon",
+      "Measuring cups"
+    ],
+    "image_url": "/images/meal_1_protein_smoothie_bowl.png"
   },
   {
-    "meal_name": "Classic Hot Dogs & Side Salad",
-    "date_at_which_meal_should_be_cooked": "Day 6",
+    "meal_name": "Chickpea & Cucumber Salad",
+    "date_at_which_meal_should_be_cooked": "Day 1",
     "ingredients": [
-      "4 hot dogs",
-      "4 hot dog buns",
-      "2 cups shredded lettuce",
-      "Leftover veggies (e.g., sliced onion, bell pepper)",
-      "2 tbsp olive oil (for dressing)",
-      "1 tbsp vinegar (optional, for dressing)"
+      "1 can (15 oz) chickpeas, rinsed",
+      "1 cucumber, diced",
+      "1 large tomato, diced",
+      "1/2 green bell pepper, diced",
+      "2 tbsp olive oil",
+      "1 tbsp lemon juice",
+      "1 tsp dried oregano",
+      "Salt and black pepper to taste"
     ],
     "time_to_prepare": 15,
     "steps_to_prepare": [
-      "1. Cook hot dogs using your preferred method: pan-fry in a little oil for 5-7 minutes, or boil in water for 4-6 minutes.",
-      "2. Lightly toast the hot dog buns in a pan or toaster oven.",
-      "3. While hot dogs cook, prepare the side salad. In a bowl, toss the shredded lettuce and any leftover chopped veggies.",
-      "4. Whisk together olive oil, vinegar (if using), salt, and pepper for a simple vinaigrette and toss with the salad.",
-      "5. Place cooked hot dogs in the buns and serve with the side salad."
+      "1. In a large bowl, combine the rinsed chickpeas, diced cucumber, diced tomato, and diced bell pepper.",
+      "2. In a small bowl, whisk together the olive oil, lemon juice, dried oregano, salt, and pepper to create the dressing.",
+      "3. Pour the dressing over the chickpea and vegetable mixture.",
+      "4. Toss gently to combine. Serve immediately or chill for 10 minutes for flavors to meld."
     ],
-    "tips_and_tricks": "Choose nitrate-free or chicken/turkey hot dogs for a healthier option. Add your favorite condiments like mustard or ketchup.",
+    "tips_and_tricks": "Add some crumbled paneer or feta cheese (if not strictly Jain) for extra flavor and protein. Fresh cilantro or parsley also works well.",
     "appliances_and_utensils": [
-      "Skillet or pot",
-      "Tongs",
-      "Salad bowl"
-    ]
+      "Large bowl",
+      "Small bowl",
+      "Knife",
+      "Cutting board",
+      "Whisk",
+      "Can opener"
+    ],
+    "image_url": "/images/meal_2_chickpea__cucumber_salad.png"
   },
   {
-    "meal_name": "Pantry Cleanout 'Pepperoni' Pizza Tortillas",
-    "date_at_which_meal_should_be_cooked": "Day 7",
+    "meal_name": "Quick Jain Palak Paneer with Basmati Rice",
+    "date_at_which_meal_should_be_cooked": "Day 1",
     "ingredients": [
-      "2 large flour tortillas",
-      "1/4 cup salsa or tomato sauce",
-      "1/2 cup shredded Mexican cheese",
-      "Optional toppings: leftover cooked meat, leftover veggies"
+      "250g paneer, cubed",
+      "10 oz frozen chopped spinach, thawed",
+      "1 cup tomato puree",
+      "1 inch ginger, grated",
+      "1 green chili, finely chopped",
+      "1 tsp cumin seeds",
+      "1/4 tsp asafoetida (hing)",
+      "1/2 tsp turmeric powder",
+      "1 tsp coriander powder",
+      "1/2 tsp garam masala",
+      "2 tbsp vegetable oil",
+      "Salt to taste",
+      "1 cup basmati rice",
+      "2 cups water"
     ],
-    "time_to_prepare": 12,
+    "time_to_prepare": 30,
     "steps_to_prepare": [
-      "1. Preheat your oven broiler or a toaster oven to high. You can also do this in a large, dry skillet on the stovetop.",
-      "2. Place tortillas on a baking sheet.",
-      "3. Spread a thin layer of salsa or tomato sauce over each tortilla, leaving a small border.",
-      "4. Sprinkle evenly with shredded cheese.",
-      "5. Add any leftover cooked meats (like hot dogs, turkey, or chicken) or veggies you have on hand. For a 'pepperoni' flavor, use thinly sliced hot dogs.",
-      "6. Broil for 2-4 minutes, or pan-fry on medium heat, until the cheese is bubbly and the tortilla is crisp. Watch carefully to prevent burning."
+      "1. Rinse basmati rice until water runs clear. In a pot, add rice and 2 cups of water, bring to a boil, then cover and simmer on low for 15-20 minutes until water is absorbed.",
+      "2. While rice cooks, heat oil in a pan over medium heat. Add cumin seeds and let them splutter. Add asafoetida, grated ginger, and green chili. Saut\u00e9 for 30 seconds.",
+      "3. Add the tomato puree, turmeric powder, and coriander powder. Cook for 5-7 minutes until the oil starts to separate.",
+      "4. Add the thawed spinach and salt. Mix well and cook for 5 minutes.",
+      "5. Gently stir in the paneer cubes and garam masala. Cook for another 2-3 minutes.",
+      "6. Serve hot with the cooked basmati rice."
     ],
-    "tips_and_tricks": "This is a perfect end-of-week meal to use up any remaining ingredients. Almost anything can be a pizza topping!",
+    "tips_and_tricks": "For a creamier texture, you can blend the spinach mixture before adding the paneer. Make a double batch for an easy lunch wrap the next day.",
     "appliances_and_utensils": [
-      "Baking sheet",
-      "Oven with broiler or Toaster Oven or Skillet",
-      "Spoon"
-    ]
+      "Pan with lid",
+      "Pot with lid",
+      "Knife",
+      "Cutting board",
+      "Spatula",
+      "Grater"
+    ],
+    "image_url": "/images/meal_3_quick_jain_palak_paneer_with_basmati_rice.png"
   },
   {
-    "meal_name": "5-Minute Mug Brownie",
-    "date_at_which_meal_should_be_cooked": "Dessert (as desired)",
+    "meal_name": "Avocado Toast with Chili Flakes",
+    "date_at_which_meal_should_be_cooked": "Day 2",
     "ingredients": [
-      "4 tbsp brownie mix",
-      "2 tbsp water",
-      "1 tsp olive oil"
+      "2 slices whole wheat bread",
+      "1 ripe avocado",
+      "1/2 tbsp lemon juice",
+      "1/4 tsp chili flakes",
+      "Salt and black pepper to taste"
+    ],
+    "time_to_prepare": 8,
+    "steps_to_prepare": [
+      "1. Toast the slices of whole wheat bread to your desired crispness.",
+      "2. In a small bowl, mash the avocado with a fork. Mix in the lemon juice, salt, and pepper.",
+      "3. Spread the mashed avocado evenly on the toasted bread.",
+      "4. Sprinkle with chili flakes and serve immediately."
+    ],
+    "tips_and_tricks": "A sprinkle of black salt (kala namak) can add a nice savory, slightly eggy flavor.",
+    "appliances_and_utensils": [
+      "Toaster",
+      "Bowl",
+      "Fork",
+      "Knife"
+    ],
+    "image_url": "/images/meal_4_avocado_toast_with_chili_flakes.png"
+  },
+  {
+    "meal_name": "Palak Paneer Wrap",
+    "date_at_which_meal_should_be_cooked": "Day 2",
+    "ingredients": [
+      "1 cup leftover Palak Paneer",
+      "2 whole wheat tortillas",
+      "1/4 cup shredded lettuce (optional)"
+    ],
+    "time_to_prepare": 10,
+    "steps_to_prepare": [
+      "1. Gently reheat the leftover Palak Paneer in a pan or microwave.",
+      "2. Warm the whole wheat tortillas in a dry pan for 30 seconds per side or in the microwave for 15 seconds.",
+      "3. Place a line of the warm Palak Paneer down the center of each tortilla.",
+      "4. Top with shredded lettuce if desired.",
+      "5. Fold the sides of the tortilla in and roll it up tightly."
+    ],
+    "tips_and_tricks": "Add a dollop of Greek yogurt or a sprinkle of cheese for extra creaminess.",
+    "appliances_and_utensils": [
+      "Pan or microwave",
+      "Spatula",
+      "Plate"
+    ],
+    "image_url": "/images/meal_5_palak_paneer_wrap.png"
+  },
+  {
+    "meal_name": "Black Bean & Corn Quesadillas",
+    "date_at_which_meal_should_be_cooked": "Day 2",
+    "ingredients": [
+      "1/2 can (7.5 oz) black beans, rinsed",
+      "1/2 cup frozen corn, thawed",
+      "1/2 tsp cumin powder",
+      "4 whole wheat tortillas",
+      "1 cup shredded Mexican cheese blend",
+      "1 tbsp vegetable oil",
+      "For Salsa: 1 tomato, 2 tbsp chopped cilantro, squeeze of lime juice, salt"
+    ],
+    "time_to_prepare": 20,
+    "steps_to_prepare": [
+      "1. Make the quick salsa: Finely dice the tomato and combine with chopped cilantro, a squeeze of lime juice, and a pinch of salt. Set aside.",
+      "2. In a bowl, mix the black beans, corn, and cumin powder.",
+      "3. Heat a large pan or griddle over medium heat with a little oil.",
+      "4. Place one tortilla in the pan. Sprinkle half of it with 1/4 of the cheese, then 1/4 of the bean/corn mixture, then another 1/4 of the cheese.",
+      "5. Fold the other half of the tortilla over the filling. Cook for 2-3 minutes per side, until golden brown and the cheese is melted.",
+      "6. Repeat for the second quesadilla. Cut into wedges and serve with the fresh salsa."
+    ],
+    "tips_and_tricks": "You can add finely diced bell peppers to the filling for more veggies. Serve with a side of Greek yogurt or sour cream.",
+    "appliances_and_utensils": [
+      "Large pan or griddle",
+      "Bowl",
+      "Spatula",
+      "Knife",
+      "Cutting board"
+    ],
+    "image_url": "/images/meal_6_black_bean__corn_quesadillas.png"
+  },
+  {
+    "meal_name": "Jain Tofu Scramble",
+    "date_at_which_meal_should_be_cooked": "Day 3",
+    "ingredients": [
+      "1/2 block (7 oz) firm tofu, pressed",
+      "1 tbsp nutritional yeast (optional)",
+      "1/2 tsp turmeric powder",
+      "1/4 tsp black salt (kala namak)",
+      "1/2 small bell pepper, finely diced",
+      "1 tbsp vegetable oil",
+      "Black pepper to taste"
+    ],
+    "time_to_prepare": 15,
+    "steps_to_prepare": [
+      "1. Use a fork to crumble the pressed tofu into a bowl. It should resemble scrambled eggs.",
+      "2. Stir in the nutritional yeast, turmeric powder, black salt, and black pepper.",
+      "3. Heat oil in a non-stick skillet over medium heat. Add the diced bell pepper and cook for 2-3 minutes until slightly softened.",
+      "4. Add the crumbled tofu mixture to the skillet.",
+      "5. Cook, stirring occasionally, for 5-7 minutes until the tofu is heated through. Serve hot."
+    ],
+    "tips_and_tricks": "Serve with a side of avocado toast or in a whole wheat tortilla for a breakfast burrito.",
+    "appliances_and_utensils": [
+      "Non-stick skillet",
+      "Bowl",
+      "Fork",
+      "Spatula"
+    ],
+    "image_url": "/images/meal_7_jain_tofu_scramble.png"
+  },
+  {
+    "meal_name": "Deconstructed Quesadilla Salad",
+    "date_at_which_meal_should_be_cooked": "Day 3",
+    "ingredients": [
+      "2 cups chopped lettuce",
+      "1 cup leftover black bean and corn mixture",
+      "1/4 cup shredded cheese",
+      "1/4 cup fresh salsa",
+      "1/4 avocado, sliced"
+    ],
+    "time_to_prepare": 10,
+    "steps_to_prepare": [
+      "1. Place the chopped lettuce in a large bowl as the base.",
+      "2. Top with the leftover black bean and corn mixture.",
+      "3. Sprinkle the shredded cheese over the top.",
+      "4. Add the fresh salsa and sliced avocado.",
+      "5. Toss gently or serve as is. You can crush a tortilla chip on top for crunch."
+    ],
+    "tips_and_tricks": "A dollop of Greek yogurt makes a great creamy dressing.",
+    "appliances_and_utensils": [
+      "Bowl",
+      "Knife",
+      "Cutting board"
+    ],
+    "image_url": "/images/meal_8_deconstructed_quesadilla_salad.png"
+  },
+  {
+    "meal_name": "Creamy Tomato & Cashew Pasta",
+    "date_at_which_meal_should_be_cooked": "Day 3",
+    "ingredients": [
+      "200g whole wheat fettuccine",
+      "1/4 cup raw cashews, soaked in hot water for 15 mins",
+      "1 can (14.5 oz) diced tomatoes",
+      "1 tsp dried basil",
+      "1 tsp dried oregano",
+      "1 tbsp olive oil",
+      "Salt and pepper to taste",
+      "1/2 cup chopped bell peppers"
+    ],
+    "time_to_prepare": 25,
+    "steps_to_prepare": [
+      "1. Cook the fettuccine according to package directions. Drain, reserving 1/2 cup of pasta water.",
+      "2. While pasta cooks, drain the soaked cashews. In a blender, combine the cashews, canned tomatoes (with juice), basil, and oregano. Blend until completely smooth.",
+      "3. Heat olive oil in a pan. Saut\u00e9 the chopped bell peppers for 3-4 minutes until tender-crisp.",
+      "4. Pour the blended tomato-cashew sauce into the pan. Season with salt and pepper. Simmer for 5 minutes.",
+      "5. Add the cooked pasta to the sauce, tossing to coat. Add a splash of reserved pasta water if the sauce is too thick.",
+      "6. Serve immediately."
+    ],
+    "tips_and_tricks": "For extra protein, stir in a can of rinsed chickpeas or some pan-fried tofu cubes.",
+    "appliances_and_utensils": [
+      "Pot",
+      "Blender",
+      "Pan",
+      "Colander",
+      "Spatula"
+    ],
+    "image_url": "/images/meal_9_creamy_tomato__cashew_pasta.png"
+  },
+  {
+    "meal_name": "Peanut Butter & Banana Toast",
+    "date_at_which_meal_should_be_cooked": "Day 4",
+    "ingredients": [
+      "2 slices whole wheat bread",
+      "2 tbsp peanut butter",
+      "1/2 banana, sliced",
+      "1 tsp chia seeds (optional)"
     ],
     "time_to_prepare": 5,
     "steps_to_prepare": [
-      "1. In a microwave-safe mug, add the brownie mix, water, and olive oil.",
-      "2. Stir with a fork until just combined. Do not overmix.",
-      "3. Microwave on high for 60-90 seconds. The brownie will puff up and should look cooked but still be slightly gooey in the center.",
-      "4. Let it cool for a minute before eating. Be careful, the mug will be hot.",
-      "5. Top with a small scoop of Greek yogurt if desired."
+      "1. Toast the bread to your liking.",
+      "2. Spread peanut butter evenly on each slice of toast.",
+      "3. Arrange banana slices on top of the peanut butter.",
+      "4. Sprinkle with chia seeds if using and serve."
     ],
-    "tips_and_tricks": "Use a standard-sized coffee mug to prevent overflow. If you don't have brownie mix, you can make it from scratch with flour, sugar, cocoa powder, oil, and water.",
+    "tips_and_tricks": "A drizzle of maple syrup can add a touch of sweetness.",
     "appliances_and_utensils": [
-      "Microwave-safe mug",
-      "Fork",
-      "Measuring spoons"
-    ]
+      "Toaster",
+      "Knife"
+    ],
+    "image_url": "/images/meal_10_peanut_butter__banana_toast.png"
+  },
+  {
+    "meal_name": "Leftover Creamy Tomato Pasta",
+    "date_at_which_meal_should_be_cooked": "Day 4",
+    "ingredients": [
+      "2 cups leftover Creamy Tomato Pasta",
+      "1 tbsp water or milk"
+    ],
+    "time_to_prepare": 5,
+    "steps_to_prepare": [
+      "1. Place leftover pasta in a microwave-safe bowl or in a small saucepan.",
+      "2. Add a tablespoon of water or milk to help loosen the sauce while reheating.",
+      "3. Reheat in the microwave for 2-3 minutes, stirring halfway through, or on the stovetop over medium-low heat until warmed through."
+    ],
+    "tips_and_tricks": "Sprinkle with some fresh basil or a little extra cheese before serving.",
+    "appliances_and_utensils": [
+      "Microwave or saucepan",
+      "Bowl",
+      "Spoon"
+    ],
+    "image_url": "/images/meal_11_leftover_creamy_tomato_pasta.png"
+  },
+  {
+    "meal_name": "One-Pot Jain Veggie Biryani",
+    "date_at_which_meal_should_be_cooked": "Day 4",
+    "ingredients": [
+      "1 cup basmati rice, rinsed",
+      "1.75 cups water",
+      "1 cup mixed vegetables (cauliflower florets, peas, diced bell pepper)",
+      "2 tbsp vegetable oil",
+      "1 tsp cumin seeds",
+      "1/4 tsp asafoetida (hing)",
+      "1 inch ginger, grated",
+      "1 green chili, slit",
+      "1/2 tsp turmeric powder",
+      "1 tsp biryani masala or garam masala",
+      "Salt to taste",
+      "2 tbsp chopped cilantro for garnish",
+      "Side: 1/2 cup plain yogurt"
+    ],
+    "time_to_prepare": 35,
+    "steps_to_prepare": [
+      "1. Heat oil in a deep pot or pressure cooker over medium heat. Add cumin seeds, let them splutter.",
+      "2. Add asafoetida, ginger, and green chili. Saut\u00e9 for 30 seconds.",
+      "3. Add the mixed vegetables and saut\u00e9 for 3-4 minutes.",
+      "4. Add the turmeric powder, biryani masala, and salt. Stir well.",
+      "5. Add the rinsed basmati rice and stir gently to coat the rice with the spices.",
+      "6. Pour in the water and bring to a boil. If using a pot, reduce heat to low, cover, and cook for 15-20 minutes. If using a pressure cooker, cook for 1 whistle.",
+      "7. Let it rest for 5 minutes, then fluff with a fork. Garnish with cilantro and serve with a side of plain yogurt."
+    ],
+    "tips_and_tricks": "A few strands of saffron soaked in warm milk can be added for color and aroma.",
+    "appliances_and_utensils": [
+      "Deep pot with lid or Pressure cooker",
+      "Spatula",
+      "Measuring cups"
+    ],
+    "image_url": "/images/meal_12_one-pot_jain_veggie_biryani.png"
+  },
+  {
+    "meal_name": "Mango Lassi Smoothie",
+    "date_at_which_meal_should_be_cooked": "Day 5",
+    "ingredients": [
+      "1 cup plain yogurt",
+      "1/2 cup canned mango pulp or fresh mango chunks",
+      "1/2 cup milk",
+      "1 tsp sugar or maple syrup (optional)"
+    ],
+    "time_to_prepare": 5,
+    "steps_to_prepare": [
+      "1. Combine yogurt, mango pulp/chunks, and milk in a blender.",
+      "2. Add sweetener if your mango is not sweet enough.",
+      "3. Blend until smooth and creamy.",
+      "4. Pour into a glass and serve immediately."
+    ],
+    "tips_and_tricks": "Add a pinch of ground cardamom for a traditional flavor. A few ice cubes will make it colder and thicker.",
+    "appliances_and_utensils": [
+      "Blender",
+      "Glass"
+    ],
+    "image_url": "/images/meal_13_mango_lassi_smoothie.png"
+  },
+  {
+    "meal_name": "Leftover Veggie Biryani with Raita",
+    "date_at_which_meal_should_be_cooked": "Day 5",
+    "ingredients": [
+      "2 cups leftover Veggie Biryani",
+      "1/2 cup plain yogurt",
+      "1/4 cucumber, grated",
+      "pinch of cumin powder",
+      "pinch of salt"
+    ],
+    "time_to_prepare": 10,
+    "steps_to_prepare": [
+      "1. To make the raita, combine yogurt, grated cucumber, cumin powder, and salt in a small bowl. Mix well.",
+      "2. Reheat the leftover biryani in a microwave or on the stovetop.",
+      "3. Serve the hot biryani with the cool cucumber raita on the side."
+    ],
+    "tips_and_tricks": "You can also add finely chopped tomatoes or cilantro to your raita.",
+    "appliances_and_utensils": [
+      "Microwave or saucepan",
+      "Bowl",
+      "Grater"
+    ],
+    "image_url": "/images/meal_14_leftover_veggie_biryani_with_raita.png"
+  },
+  {
+    "meal_name": "Jain Margherita Pizza",
+    "date_at_which_meal_should_be_cooked": "Day 5",
+    "ingredients": [
+      "1 pre-made whole wheat pizza base",
+      "1/2 cup tomato puree",
+      "1 tsp dried oregano",
+      "1/2 tsp dried basil",
+      "Pinch of salt",
+      "1 cup shredded or fresh mozzarella cheese",
+      "Fresh basil leaves for topping",
+      "1 tbsp olive oil"
+    ],
+    "time_to_prepare": 20,
+    "steps_to_prepare": [
+      "1. Preheat your oven to 425\u00b0F (220\u00b0C).",
+      "2. In a small bowl, mix the tomato puree with dried oregano, dried basil, and salt to make the sauce.",
+      "3. Place the pizza base on a baking sheet. Spread the sauce evenly over the base, leaving a small border.",
+      "4. Sprinkle the mozzarella cheese over the sauce.",
+      "5. Bake for 10-12 minutes, or until the crust is golden and the cheese is bubbly and melted.",
+      "6. Remove from the oven, top with fresh basil leaves, drizzle with olive oil, slice, and serve."
+    ],
+    "tips_and_tricks": "For extra flavor, add sliced tomatoes or bell peppers as toppings before baking.",
+    "appliances_and_utensils": [
+      "Oven",
+      "Baking sheet",
+      "Bowl",
+      "Spoon",
+      "Pizza cutter"
+    ],
+    "image_url": "/images/meal_15_jain_margherita_pizza.png"
+  },
+  {
+    "meal_name": "Caprese-Style Sandwich",
+    "date_at_which_meal_should_be_cooked": "Day 6",
+    "ingredients": [
+      "2 slices whole wheat bread",
+      "1/2 large tomato, sliced",
+      "2 oz fresh mozzarella, sliced",
+      "4-5 fresh basil leaves",
+      "1 tsp olive oil",
+      "Salt and pepper to taste"
+    ],
+    "time_to_prepare": 10,
+    "steps_to_prepare": [
+      "1. Lightly toast the bread slices if desired.",
+      "2. Drizzle one side of each bread slice with olive oil.",
+      "3. Layer the slices of tomato, fresh mozzarella, and fresh basil leaves on one slice of bread.",
+      "4. Season with salt and pepper.",
+      "5. Top with the other slice of bread. Press gently and serve."
+    ],
+    "tips_and_tricks": "You can make this into a grilled cheese by buttering the outside of the bread and cooking in a pan until golden and the cheese is melted.",
+    "appliances_and_utensils": [
+      "Knife",
+      "Cutting board",
+      "Toaster (optional)"
+    ],
+    "image_url": "/images/meal_16_caprese-style_sandwich.png"
+  },
+  {
+    "meal_name": "Quick Red Lentil Dal (Tadka)",
+    "date_at_which_meal_should_be_cooked": "Day 6",
+    "ingredients": [
+      "1 cup red lentils (masoor dal), rinsed",
+      "3 cups water",
+      "1/2 tsp turmeric powder",
+      "Salt to taste",
+      "For Tadka: 2 tbsp ghee or oil",
+      "1 tsp cumin seeds",
+      "1/4 tsp asafoetida (hing)",
+      "1 dried red chili",
+      "1 tsp grated ginger"
+    ],
+    "time_to_prepare": 25,
+    "steps_to_prepare": [
+      "1. In a pot, combine the rinsed red lentils, water, turmeric powder, and salt. Bring to a boil.",
+      "2. Reduce heat, cover partially, and simmer for 15-20 minutes until the lentils are soft and cooked through.",
+      "3. While the dal cooks, prepare the tadka (tempering). Heat ghee or oil in a small pan.",
+      "4. Add cumin seeds and let them sizzle. Add the dried red chili, asafoetida, and grated ginger. Saut\u00e9 for 30 seconds until fragrant.",
+      "5. Pour the hot tadka over the cooked dal and stir immediately. Be careful as it will splutter.",
+      "6. Serve hot with basmati rice."
+    ],
+    "tips_and_tricks": "A squeeze of lemon juice at the end brightens up the flavor of the dal.",
+    "appliances_and_utensils": [
+      "Pot",
+      "Small pan (for tadka)",
+      "Spoon"
+    ],
+    "image_url": "/images/meal_17_quick_red_lentil_dal_tadka.png"
+  },
+  {
+    "meal_name": "Jain Veggie Burgers",
+    "date_at_which_meal_should_be_cooked": "Day 7",
+    "ingredients": [
+      "1 raw banana",
+      "1 can (15 oz) chickpeas, rinsed",
+      "1/2 cup quick oats",
+      "1 tsp cumin powder",
+      "1/2 tsp coriander powder",
+      "1/2 tsp garam masala",
+      "1 green chili, minced",
+      "2 tbsp chopped cilantro",
+      "Salt to taste",
+      "2 tbsp oil for cooking",
+      "4 veggie burger buns",
+      "4 slices cheese",
+      "Lettuce and tomato slices for serving"
+    ],
+    "time_to_prepare": 35,
+    "steps_to_prepare": [
+      "1. Boil the raw banana until tender (about 15-20 minutes). Peel and mash it in a large bowl.",
+      "2. Add the rinsed chickpeas to the bowl and mash them coarsely with the banana.",
+      "3. Stir in the quick oats, cumin powder, coriander powder, garam masala, minced green chili, cilantro, and salt. Mix until well combined.",
+      "4. Divide the mixture into 4 equal portions and shape them into patties.",
+      "5. Heat oil in a large skillet over medium heat. Cook the patties for 5-6 minutes on each side, until golden brown and cooked through.",
+      "6. During the last minute of cooking, place a slice of cheese on top of each patty to melt.",
+      "7. Lightly toast the burger buns.",
+      "8. Assemble the burgers with the cooked patty, lettuce, and tomato slices. Serve immediately."
+    ],
+    "tips_and_tricks": "If the mixture is too wet, add more oats. If it's too dry, add a tablespoon of water. These patties can be made ahead and refrigerated.",
+    "appliances_and_utensils": [
+      "Pot",
+      "Large bowl",
+      "Masher or Fork",
+      "Skillet",
+      "Spatula",
+      "Knife"
+    ],
+    "image_url": "/images/meal_18_jain_veggie_burgers.png"
   }
 ]

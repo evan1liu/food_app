@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+import os
 
 from pydantic import BaseModel
 from backend.routers import api_router
@@ -13,6 +15,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Create images directory if it doesn't exist
+images_dir = os.path.join("backend", "images")
+os.makedirs(images_dir, exist_ok=True)
+
+# Serve static images
+app.mount("/images", StaticFiles(directory=images_dir), name="images")
 
 # Include the API router
 app.include_router(api_router, prefix="/api")

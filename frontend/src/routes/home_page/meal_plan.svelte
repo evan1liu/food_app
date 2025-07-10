@@ -10,6 +10,15 @@
 	function closeMealDetails() {
 		selectedMeal = null;
 	}
+
+	// Build full URL for images
+	function getImageUrl(imageUrl: string | null): string | null {
+		if (!imageUrl) return null;
+		// If it's already a full URL, return as-is
+		if (imageUrl.startsWith('http')) return imageUrl;
+		// Otherwise, prepend the backend URL
+		return `http://127.0.0.1:8000${imageUrl}`;
+	}
 </script>
 
 <div class="meal-plan-container">
@@ -19,7 +28,24 @@
 			{#each meal_plan as meal}
 				<div class="meal-card" on:click={() => selectMeal(meal)} on:keydown={(e) => e.key === 'Enter' && selectMeal(meal)} role="button" tabindex="0">
 					<div class="meal-image-placeholder">
-						<div class="image-icon">🍽️</div>
+						{#if meal.image_url}
+							<img 
+								src={getImageUrl(meal.image_url)} 
+								alt={meal.meal_name} 
+								class="meal-image"
+								on:load={() => console.log('Image loaded successfully for:', meal.meal_name)}
+								on:error={(e) => {
+									console.error('Image failed to load for:', meal.meal_name, e);
+									// Optionally hide the image and show fallback
+									e.target.style.display = 'none';
+								}}
+							/>
+						{:else}
+							<div class="image-icon">🍽️</div>
+							{#if meal.image_error}
+								<div class="image-error-notice">Image generation failed</div>
+							{/if}
+						{/if}
 					</div>
 					<div class="meal-info">
 						<h3 class="meal-name">{meal.meal_name}</h3>
@@ -50,7 +76,11 @@
 			
 			<div class="meal-header">
 				<div class="meal-image-large">
-					<div class="image-icon-large">🍽️</div>
+					{#if selectedMeal.image_url}
+						<img src={getImageUrl(selectedMeal.image_url)} alt={selectedMeal.meal_name} class="meal-image-full" />
+					{:else}
+						<div class="image-icon-large">🍽️</div>
+					{/if}
 				</div>
 				<div class="meal-title-section">
 					<h2>{selectedMeal.meal_name}</h2>
@@ -141,11 +171,29 @@
 		align-items: center;
 		justify-content: center;
 		position: relative;
+		overflow: hidden;
+	}
+	
+	.meal-image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 	
 	.image-icon {
 		font-size: 2.5rem;
 		opacity: 0.7;
+	}
+	
+	.image-error-notice {
+		position: absolute;
+		bottom: 2px;
+		right: 2px;
+		background: rgba(255, 0, 0, 0.8);
+		color: white;
+		font-size: 0.7rem;
+		padding: 2px 4px;
+		border-radius: 2px;
 	}
 	
 	.meal-info {
@@ -251,6 +299,13 @@
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
+		overflow: hidden;
+	}
+	
+	.meal-image-full {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 	
 	.image-icon-large {
