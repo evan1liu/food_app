@@ -1,5 +1,5 @@
 <script>
-    let {selectedRestrictions = $bindable()} = $props();
+    let {selectedRestrictions = $bindable([])} = $props();
     
     // State for available restrictions and loading
     let availableRestrictions = $state({});
@@ -20,7 +20,7 @@
             availableRestrictions = data;
             isLoading = false;
         } catch (err) {
-            error = err.message;
+            error = err instanceof Error ? err.message : 'An unknown error occurred';
             isLoading = false;
         }
     }
@@ -34,21 +34,20 @@
     $effect(() => {
         if (!isLoading && availableRestrictions && Object.keys(availableRestrictions).length > 0) {
             // Initialize selectedRestrictions if not already set
-            if (!selectedRestrictions() || typeof selectedRestrictions() !== 'object') {
-                selectedRestrictions({});
+            if (!selectedRestrictions || typeof selectedRestrictions !== 'object') {
+                selectedRestrictions = {};
             }
 
             // Initialize empty arrays for each category if not already present
-            const current = selectedRestrictions();
             let needsUpdate = false;
             for (const category of Object.keys(availableRestrictions)) {
-                if (!current[category]) {
-                    current[category] = [];
+                if (!selectedRestrictions[category]) {
+                    selectedRestrictions[category] = [];
                     needsUpdate = true;
                 }
             }
             if (needsUpdate) {
-                selectedRestrictions({...current});
+                selectedRestrictions = {...selectedRestrictions};
             }
         }
     });
@@ -76,20 +75,19 @@
      * @param {string} restriction 
      */
     function toggleRestriction(category, restriction) {
-        const current = selectedRestrictions();
-        if (!current[category]) {
-            current[category] = [];
+        if (!selectedRestrictions[category]) {
+            selectedRestrictions[category] = [];
         }
         
-        const currentSelections = current[category];
+        const currentSelections = selectedRestrictions[category];
         if (currentSelections.includes(restriction)) {
             // Remove if already selected
-            current[category] = currentSelections.filter(/** @param {string} item */ item => item !== restriction);
+            selectedRestrictions[category] = currentSelections.filter(/** @param {string} item */ item => item !== restriction);
         } else {
             // Add if not selected
-            current[category] = [...currentSelections, restriction];
+            selectedRestrictions[category] = [...currentSelections, restriction];
         }
-        selectedRestrictions({...current});
+        selectedRestrictions = {...selectedRestrictions};
     }
 
     // Check if a food item is selected
@@ -98,13 +96,13 @@
      * @param {string} restriction 
      */
     function isRestrictionSelected(category, restriction) {
-        return selectedRestrictions()?.[category]?.includes(restriction) || false;
+        return selectedRestrictions?.[category]?.includes(restriction) || false;
     }
 
     // Get selection count for a category
     /** @param {string} category */
     function getCategorySelectionCount(category) {
-        return selectedRestrictions()?.[category]?.length || 0;
+        return selectedRestrictions?.[category]?.length || 0;
     }
 </script>
 
@@ -159,11 +157,11 @@
         </div>
 
         <!-- Summary of selections -->
-        {#if selectedRestrictions() && Object.values(selectedRestrictions()).some(selections => selections.length > 0)}
+        {#if selectedRestrictions && Object.values(selectedRestrictions).some(selections => selections.length > 0)}
             <div class="summary">
                 <h3>Your Selections:</h3>
                 <div class="summary-tags">
-                    {#each Object.entries(selectedRestrictions()) as [category, selections]}
+                    {#each Object.entries(selectedRestrictions) as [category, selections]}
                         {#if selections.length > 0}
                             <div class="summary-category">
                                 <span class="summary-category-name">{category.replace(/_/g, ' ')}:</span>

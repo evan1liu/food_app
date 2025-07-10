@@ -1,0 +1,57 @@
+{
+  "id": "20250709_220721_227021",
+  "timestamp": "2025-07-09T22:07:21.227095",
+  "data": {
+    "time_to_cook_per_day": 23.0,
+    "money_to_spend_per_week": 76.0,
+    "allergies": [],
+    "nutrition_goals": [],
+    "food_restrictions": {
+      "dietary_restrictions": [],
+      "religious_restrictions": [],
+      "health_related_restrictions": [],
+      "intolerances": [],
+      "personal_preferences": [],
+      "texture_aversions": []
+    },
+    "food_preferences": {
+      "American": [],
+      "Pizza": [],
+      "Chinese": [
+        "Lo Mein",
+        "Fried Rice"
+      ],
+      "Mexican": [],
+      "Italian": [],
+      "Indian": [],
+      "Thai": [],
+      "Japanese": [],
+      "Korean": [],
+      "Vietnamese": [],
+      "Mediterranean": [],
+      "Fast Food": [],
+      "Healthy": [],
+      "Vegetarian": [],
+      "Vegan": [],
+      "Seafood": [],
+      "Steak": [],
+      "Breakfast": [],
+      "Brunch": [],
+      "Sandwiches": [],
+      "Chicken": [],
+      "Burgers": [],
+      "Desserts": [],
+      "Coffee": [],
+      "Bakery": [],
+      "Halal": [],
+      "Kosher": [],
+      "Gluten-Free": [],
+      "Keto": [],
+      "Caribbean": [],
+      "Soul Food": [],
+      "Lebanese": [],
+      "Ethiopian": []
+    },
+    "address": "35 N Park St, Madison, WI 53715, USA"
+  }
+}
