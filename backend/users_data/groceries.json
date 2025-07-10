@@ -1,122 +1,187 @@
 [
   {
-    "item_name": "Chicken Breast, Boneless Skinless",
-    "quantity": "2 lbs",
-    "estimated_cost": 10.0
-  },
-  {
-    "item_name": "Ground Turkey",
-    "quantity": "1 lb",
-    "estimated_cost": 5.0
-  },
-  {
-    "item_name": "Hot Dogs",
-    "quantity": "1 pack (8 count)",
-    "estimated_cost": 4.0
-  },
-  {
-    "item_name": "Large Eggs",
-    "quantity": "1 dozen",
-    "estimated_cost": 3.5
-  },
-  {
-    "item_name": "Bagels",
-    "quantity": "1 pack (6 count)",
-    "estimated_cost": 4.0
-  },
-  {
-    "item_name": "Large Flour Tortillas",
-    "quantity": "1 pack (10 count)",
-    "estimated_cost": 3.5
-  },
-  {
-    "item_name": "Instant Ramen Noodles",
-    "quantity": "2 packs",
-    "estimated_cost": 1.5
-  },
-  {
-    "item_name": "Long-Grain White Rice",
-    "quantity": "2 lb bag",
-    "estimated_cost": 3.0
-  },
-  {
-    "item_name": "Hot Dog Buns",
-    "quantity": "1 pack (8 count)",
-    "estimated_cost": 2.5
-  },
-  {
-    "item_name": "Brownie Mix",
-    "quantity": "1 box",
-    "estimated_cost": 3.0
-  },
-  {
-    "item_name": "Yellow Onion",
-    "quantity": "1 large",
-    "estimated_cost": 1.0
-  },
-  {
-    "item_name": "Bell Pepper (any color)",
-    "quantity": "1",
-    "estimated_cost": 1.5
-  },
-  {
-    "item_name": "Baby Spinach",
-    "quantity": "1 bag (5oz)",
-    "estimated_cost": 3.0
-  },
-  {
-    "item_name": "Shredded Lettuce",
-    "quantity": "1 bag",
-    "estimated_cost": 2.5
-  },
-  {
-    "item_name": "Frozen Stir-Fry Vegetable Mix",
-    "quantity": "1 bag (12-16oz)",
-    "estimated_cost": 3.5
-  },
-  {
-    "item_name": "Cream Cheese",
-    "quantity": "1 tub (8oz)",
-    "estimated_cost": 3.0
-  },
-  {
     "item_name": "Plain Greek Yogurt",
-    "quantity": "1 large tub (32oz)",
+    "quantity": "32 oz tub",
+    "estimated_cost": 5.5
+  },
+  {
+    "item_name": "Paneer",
+    "quantity": "1 x 250g block",
     "estimated_cost": 5.0
+  },
+  {
+    "item_name": "Firm Tofu",
+    "quantity": "1 x 14 oz block",
+    "estimated_cost": 2.5
   },
   {
     "item_name": "Shredded Mexican Cheese Blend",
-    "quantity": "1 bag (8oz)",
+    "quantity": "8 oz bag",
+    "estimated_cost": 3.5
+  },
+  {
+    "item_name": "Fresh Mozzarella",
+    "quantity": "8 oz ball",
     "estimated_cost": 4.0
+  },
+  {
+    "item_name": "Milk",
+    "quantity": "1 quart",
+    "estimated_cost": 2.5
+  },
+  {
+    "item_name": "Canned Chickpeas",
+    "quantity": "2 x 15 oz cans",
+    "estimated_cost": 2.0
   },
   {
     "item_name": "Canned Black Beans",
-    "quantity": "1 can (15oz)",
+    "quantity": "1 x 15 oz can",
     "estimated_cost": 1.0
   },
   {
-    "item_name": "Taco Seasoning Mix",
-    "quantity": "1 packet",
-    "estimated_cost": 1.0
+    "item_name": "Red Lentils (Masoor Dal)",
+    "quantity": "1 lb bag",
+    "estimated_cost": 2.5
   },
   {
-    "item_name": "Teriyaki Sauce",
-    "quantity": "1 bottle",
-    "estimated_cost": 3.5
+    "item_name": "Bananas",
+    "quantity": "4-5 (about 2 lbs)",
+    "estimated_cost": 1.5
   },
   {
-    "item_name": "General Tso's Sauce",
-    "quantity": "1 bottle",
-    "estimated_cost": 3.5
+    "item_name": "Raw Banana",
+    "quantity": "1 large",
+    "estimated_cost": 0.5
   },
   {
-    "item_name": "Salsa",
-    "quantity": "1 jar (16oz)",
+    "item_name": "Avocados",
+    "quantity": "2 ripe",
     "estimated_cost": 3.0
   },
   {
-    "item_name": "Olive Oil",
-    "quantity": "1 small bottle",
+    "item_name": "Frozen Chopped Spinach",
+    "quantity": "1 x 10 oz bag",
+    "estimated_cost": 2.0
+  },
+  {
+    "item_name": "Lemons",
+    "quantity": "2",
+    "estimated_cost": 1.5
+  },
+  {
+    "item_name": "Cucumber",
+    "quantity": "2 medium",
+    "estimated_cost": 2.0
+  },
+  {
+    "item_name": "Tomatoes",
+    "quantity": "approx. 2 lbs",
     "estimated_cost": 4.0
+  },
+  {
+    "item_name": "Bell Peppers (mixed colors)",
+    "quantity": "3",
+    "estimated_cost": 4.5
+  },
+  {
+    "item_name": "Cilantro",
+    "quantity": "1 bunch",
+    "estimated_cost": 1.5
+  },
+  {
+    "item_name": "Fresh Basil",
+    "quantity": "1 small clamshell",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Lettuce (Romaine or Iceberg)",
+    "quantity": "1 head",
+    "estimated_cost": 2.0
+  },
+  {
+    "item_name": "Cauliflower",
+    "quantity": "1 small head",
+    "estimated_cost": 3.5
+  },
+  {
+    "item_name": "Ginger",
+    "quantity": "1 large piece",
+    "estimated_cost": 1.0
+  },
+  {
+    "item_name": "Green Chilies",
+    "quantity": "4-5",
+    "estimated_cost": 1.0
+  },
+  {
+    "item_name": "Basmati Rice",
+    "quantity": "2 lb bag",
+    "estimated_cost": 4.0
+  },
+  {
+    "item_name": "Whole Wheat Tortillas",
+    "quantity": "1 package (8 count)",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Whole Wheat Fettuccine",
+    "quantity": "1 box (16 oz)",
+    "estimated_cost": 2.5
+  },
+  {
+    "item_name": "Whole Wheat Bread",
+    "quantity": "1 loaf",
+    "estimated_cost": 3.5
+  },
+  {
+    "item_name": "Pre-made Whole Wheat Pizza Base",
+    "quantity": "1 large or 2 personal",
+    "estimated_cost": 4.0
+  },
+  {
+    "item_name": "Veggie Burger Buns",
+    "quantity": "1 package (4 count)",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Canned Tomato Puree",
+    "quantity": "1 x 15 oz can",
+    "estimated_cost": 1.5
+  },
+  {
+    "item_name": "Canned Diced Tomatoes",
+    "quantity": "1 x 14.5 oz can",
+    "estimated_cost": 1.5
+  },
+  {
+    "item_name": "Peanut Butter",
+    "quantity": "1 small jar",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Raw Cashews",
+    "quantity": "1/2 cup",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Canned Mango Pulp",
+    "quantity": "1 can",
+    "estimated_cost": 3.5
+  },
+  {
+    "item_name": "Quick Oats",
+    "quantity": "1 small container",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Plant-based Protein Powder",
+    "quantity": "Small container/pouch",
+    "estimated_cost": 10.0
+  },
+  {
+    "item_name": "Olive Oil, Spices, Ghee",
+    "quantity": "Pantry stock",
+    "estimated_cost": 10.0
   }
 ]
