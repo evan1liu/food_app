@@ -20,7 +20,7 @@ config = types.GenerateContentConfig(
 # Make the request
 response = client.models.generate_content(
     model="gemini-2.5-flash",
-    contents="Give me 10 super markets with a web database and website that are the closest to 35 N Park Street, Madison, wisconsin. Arrange the super markets from nearest to farthest",
+    contents="Give me the price for a dozen of eggs in the Fresh Madison Market at 703 University Ave, Madison.",
     config=config,
 )
 

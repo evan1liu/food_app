@@ -10,7 +10,12 @@
     let currentStep = $state(1);
     const totalSteps = 7;
 
-        // Example function to submit onboarding data
+    // Add loading and completion states
+    let isSubmitting = $state(false);
+    let isCompleted = $state(false);
+    let submitError = $state(null);
+
+    // Example function to submit onboarding data
     async function submitOnboarding(onboardingData) {
         try {
             const response = await fetch('http://127.0.0.1:8000/api/submit_onboarding', {
@@ -62,6 +67,33 @@
         }
     }
 
+    // Handle completion/submission
+    async function handleComplete() {
+        if (currentStep === totalSteps) {
+            // Submit the onboarding data
+            try {
+                isSubmitting = true;
+                submitError = null;
+                
+                const result = await submitOnboarding(onboardingData);
+                
+                isCompleted = true;
+                console.log('Onboarding completed with ID:', result.submission_id);
+                
+                // You could redirect to a success page or show a success message
+                // For now, we'll just log it
+                
+            } catch (error) {
+                submitError = error.message;
+                console.error('Failed to submit onboarding:', error);
+            } finally {
+                isSubmitting = false;
+            }
+        } else {
+            nextStep();
+        }
+    }
+
     $inspect(onboardingData);
 </script>
 
@@ -92,7 +124,17 @@
     </div>
 
     <div class="content-area">
-        {#if currentStep === 1}
+        {#if isCompleted}
+            <!-- Success message -->
+            <div class="completion-message">
+                <div class="success-icon">🎉</div>
+                <h2>Welcome aboard!</h2>
+                <p>Your onboarding has been completed successfully. We're excited to help you on your food journey!</p>
+                <button class="get-started-button" onclick={() => window.location.href = '/meals'}>
+                    Get Started
+                </button>
+            </div>
+        {:else if currentStep === 1}
             <Step1 />
         {:else if currentStep === 2}
             <Step2 bind:selectedAllergies={onboardingData.allergies} />
@@ -109,29 +151,43 @@
         {/if}
     </div>
 
-    <div class="navigation-container">
-        <button 
-            class="nav-button secondary" 
-            onclick={previousStep}
-            disabled={currentStep === 1}
-        >
-            <span class="button-icon">←</span>
-            Previous
-        </button>
+    {#if !isCompleted}
+        <div class="navigation-container">
+            <button 
+                class="nav-button secondary" 
+                onclick={previousStep}
+                disabled={currentStep === 1}
+            >
+                <span class="button-icon">←</span>
+                Previous
+            </button>
 
-        <div class="nav-center">
-            <span class="step-info">Step {currentStep} of {totalSteps}</span>
+            <div class="nav-center">
+                <span class="step-info">Step {currentStep} of {totalSteps}</span>
+                {#if submitError}
+                    <div class="error-message">{submitError}</div>
+                {/if}
+            </div>
+
+            <button 
+                class="nav-button primary" 
+                onclick={handleComplete}
+                disabled={isSubmitting}
+            >
+                {#if isSubmitting}
+                    <span class="loading-spinner-small"></span>
+                    Submitting...
+                {:else if currentStep === totalSteps}
+                    Complete
+                {:else}
+                    Next
+                {/if}
+                {#if !isSubmitting}
+                    <span class="button-icon">→</span>
+                {/if}
+            </button>
         </div>
-
-        <button 
-            class="nav-button primary" 
-            onclick={nextStep}
-            disabled={currentStep === totalSteps}
-        >
-            {currentStep === totalSteps ? 'Complete' : 'Next'}
-            <span class="button-icon">→</span>
-        </button>
-    </div>
+    {/if}
 </div>
 
 <style>
@@ -326,6 +382,78 @@
         font-size: 0.9rem;
         color: #6c757d;
         font-weight: 500;
+    }
+
+    .completion-message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .success-icon {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+    }
+
+    .completion-message h2 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+    }
+
+    .completion-message p {
+        font-size: 1.2rem;
+        color: #6c757d;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .get-started-button {
+        background: linear-gradient(135deg, #28a745, #20c997);
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .get-started-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+    }
+
+    .loading-spinner-small {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid transparent;
+        border-top: 2px solid currentColor;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-right: 0.5rem;
+    }
+
+    .error-message {
+        background: #fdf2f2;
+        color: #dc2626;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        border: 1px solid #fecaca;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
     }
 
     @media (max-width: 768px) {
