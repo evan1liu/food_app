@@ -29,29 +29,35 @@
 
 <div class="container">
 	<h1>Your Meal Plan & Groceries</h1>
+	
+	<div class="main-layout">
+		<div class="meal-plan-section">
+			{#await meal_plan_promise}
+				<p>Loading meal plan...</p>
+			{:then meal_plan}
+				<MealPlan {meal_plan} />
+			{:catch error}
+				<p style="color: red">Error loading meal plan: {error.message}</p>
+				<p>Please make sure the backend server is running and the API is available.</p>
+			{/await}
+		</div>
 
-	{#await meal_plan_promise}
-		<p>Loading meal plan...</p>
-	{:then meal_plan}
-		<MealPlan {meal_plan} />
-	{:catch error}
-		<p style="color: red">Error loading meal plan: {error.message}</p>
-		<p>Please make sure the backend server is running and the API is available.</p>
-	{/await}
-
-	{#await groceries_promise}
-		<p>Loading groceries...</p>
-	{:then groceries}
-		<Groceries {groceries} />
-	{:catch error}
-		<p style="color: red">Error loading groceries: {error.message}</p>
-		<p>Please make sure the backend server is running and the API is available.</p>
-	{/await}
+		<div class="groceries-section">
+			{#await groceries_promise}
+				<p>Loading groceries...</p>
+			{:then groceries}
+				<Groceries {groceries} />
+			{:catch error}
+				<p style="color: red">Error loading groceries: {error.message}</p>
+				<p>Please make sure the backend server is running and the API is available.</p>
+			{/await}
+		</div>
+	</div>
 </div>
 
 <style>
 	.container {
-		max-width: 1200px;
+		max-width: 1400px;
 		margin: 0 auto;
 		padding: 2rem;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -62,5 +68,34 @@
 		text-align: center;
 		margin-bottom: 2rem;
 		color: #333;
+	}
+
+	.main-layout {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 2rem;
+		min-height: 70vh;
+	}
+
+	.meal-plan-section {
+		overflow-y: auto;
+	}
+
+	.groceries-section {
+		position: sticky;
+		top: 2rem;
+		height: fit-content;
+		max-height: 80vh;
+		overflow-y: auto;
+	}
+
+	@media (max-width: 768px) {
+		.main-layout {
+			grid-template-columns: 1fr;
+		}
+		
+		.groceries-section {
+			position: static;
+		}
 	}
 </style>
