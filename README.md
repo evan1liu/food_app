@@ -11,14 +11,14 @@
 </h1>
 
 <p align="center">
-  <strong>Tired of the daily "what to eat?" dilemma?</strong> This intelligent meal planning application takes the stress out of your food choices. Get personalized weekly meal plans and automated grocery lists that cater to your unique tastes, budget, and health goals.
+  <strong>Built for students on a budget.</strong> This app helps you eat well without a lot of time or money. Get custom meal plans and grocery lists that fit your student lifestyle.
 </p>
 
 ---
 
-## 🚀 What is this?
+## 🎯 Our Mission
 
-This project is a smart meal planning assistant designed to simplify your life. By understanding your dietary needs and preferences, it generates a complete 7-day meal plan and a corresponding grocery list, making healthy and enjoyable eating effortless. Say goodbye to food waste and decision fatigue!
+This project is for students who want to eat well but are constrained by time and a tight budget. We aim to solve the "what to cook?" problem by providing personalized, affordable, and quick-to-prepare meal plans. Our goal is to make healthy eating accessible, reduce food waste, and eliminate the stress of daily meal planning.
 
 ## ✨ How It Works
 
