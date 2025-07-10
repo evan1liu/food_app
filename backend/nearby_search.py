@@ -71,3 +71,6 @@ user_lng = -89.4008 # Example: Madison, WI longitude
 # nearby_stores = find_nearby_supermarkets(user_lat, user_lng)
 # for store in nearby_stores:
 #     print(f"Name: {store['name']}, Address: {store['address']}")
+
+if __name__ == "__main__":
+    print(find_nearby_supermarkets(43.0722, -89.4008))
