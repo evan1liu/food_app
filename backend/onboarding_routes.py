@@ -3,6 +3,9 @@ import json
 from datetime import datetime
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
+from backend.get_prompt_for_meal_plan_groceries import get_prompt_for_meal_plan_groceries
+from backend.models import OnboardingRequest
+
 
 onboarding_router = APIRouter()
 
@@ -35,15 +38,6 @@ async def get_food_restrictions():
 @onboarding_router.get("/get_food_preferences")
 async def get_food_preferences():
     return food_preferences  # Changed from {} to food_preferences
-
-class OnboardingRequest(BaseModel):
-    time_to_cook_per_day: float
-    money_to_spend_per_week: float
-    allergies: list[str]
-    nutrition_goals: list[str]
-    food_restrictions: dict[str, list[str]]  # Changed from list[str] to dict[str, list[str]]
-    food_preferences: dict[str, list[str]]   # Changed from dict[str, str] to dict[str, list[str]]
-    address: str
 
 def save_onboarding_data(data: dict) -> str:
     """Save onboarding data to JSON file and return the unique ID"""
@@ -87,17 +81,5 @@ def save_onboarding_data(data: dict) -> str:
     
 @onboarding_router.post("/submit_onboarding")  # Changed from GET to POST
 async def submit_onboarding(onboarding_data: OnboardingRequest):
-    try:
-        # Convert to dict for storage
-        data_dict = onboarding_data.model_dump()
-        
-        # Save the data and get the submission ID
-        submission_id = save_onboarding_data(data_dict)
-        
-        return {
-            "message": "Onboarding completed successfully", 
-            "submission_id": submission_id,
-            "data": onboarding_data
-        } 
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to save onboarding data: {str(e)}") 
+    prompt = get_prompt_for_meal_plan_groceries(onboarding_data)
+    print(prompt)
