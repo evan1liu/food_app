@@ -7,8 +7,11 @@
 </div>
 
 <h1 align="center">
-  🍽️ Personalized Meal Planner & Grocery Assistant 🥗
+  Broke n' Hungry
 </h1>
+<h2 align="center">
+  🍽️ Your Personalized Meal Planner & Grocery Assistant 🥗
+</h2>
 
 <p align="center">
   <strong>Built for students on a budget.</strong> This app helps you eat well without a lot of time or money. Get custom meal plans and grocery lists that fit your student lifestyle.
