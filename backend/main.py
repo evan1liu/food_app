@@ -5,17 +5,21 @@ import os
 
 from pydantic import BaseModel
 from backend.routers import api_router
+from backend.home_routes import home_router
+from backend.onboarding_routes import onboarding_router
 
 app = FastAPI()
 
+# Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["http://localhost:5173"],  # Allows your Svelte frontend to connect
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
 )
 
+<<<<<<< Updated upstream
 # Create images directory if it doesn't exist
 images_dir = os.path.join("backend", "images")
 os.makedirs(images_dir, exist_ok=True)
@@ -26,10 +30,18 @@ app.mount("/images", StaticFiles(directory=images_dir), name="images")
 # Include the API router
 app.include_router(api_router, prefix="/api")
 
+=======
+>>>>>>> Stashed changes
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"message": "Welcome to the Food App API"}
+
+
+# Include the routers
+app.include_router(onboarding_router, prefix="/api/onboarding", tags=["onboarding"])
+app.include_router(home_router, prefix="/api", tags=["home"])
+
 
 class MealCategoryRequest(BaseModel):
     meal_category: str

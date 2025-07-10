@@ -1,9 +1,13 @@
 import os
 import json
 import re
+<<<<<<< Updated upstream
 import base64
 import asyncio
 from typing import Dict, List, Optional
+=======
+import uuid
+>>>>>>> Stashed changes
 from datetime import datetime
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
@@ -11,15 +15,28 @@ from backend.get_prompt_for_meal_plan_groceries import get_prompt_for_meal_plan_
 from backend.models import OnboardingRequest
 from dotenv import load_dotenv
 from google import genai
+<<<<<<< Updated upstream
 from google.genai import types
 from io import BytesIO
 
 load_dotenv()
 
 client = genai.Client()
+=======
+from PIL import Image
+import io
+
+
+load_dotenv()
+
+# Configure the Gemini client
+# Make sure your GOOGLE_API_KEY is set in your .env file
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+>>>>>>> Stashed changes
 
 onboarding_router = APIRouter()
 
+# JSON data loading remains the same...
 with open(os.path.join('backend', 'onboarding_data', 'nutrition_goals.json'), 'r') as f:
     nutrition_goals: list[str] = json.load(f)
     
@@ -132,6 +149,7 @@ async def generate_images_for_meals(meal_plan: List[Dict]) -> List[Dict]:
 
 def parse_llm_response_and_save(response_text: str, user_id: str = "default", meal_plan_with_images: Optional[List[Dict]] = None) -> dict:
     """
+<<<<<<< Updated upstream
     Parse the LLM response to extract meal plan and groceries from XML tags
     and save them to JSON files in the users_data folder.
     
@@ -161,54 +179,82 @@ def parse_llm_response_and_save(response_text: str, user_id: str = "default", me
             meal_plan = meal_plan_with_images
         
         # Extract groceries from <groceries> tags
+=======
+    Parse the LLM response, generate images for each meal, and save all data.
+    """
+    try:
+        # Extract meal plan
+        meal_pattern = r'<meal>\s*(.*?)\s*</meal>'
+        meal_match = re.search(meal_pattern, response_text, re.DOTALL)
+        if not meal_match:
+            raise HTTPException(status_code=500, detail="No meal plan found in LLM response")
+        meal_plan = json.loads(meal_match.group(1).strip())
+
+        # Extract groceries
+>>>>>>> Stashed changes
         groceries_pattern = r'<groceries>\s*(.*?)\s*</groceries>'
         groceries_match = re.search(groceries_pattern, response_text, re.DOTALL)
-        
         if not groceries_match:
-            raise HTTPException(status_code=500, detail="No groceries section found in LLM response")
+            raise HTTPException(status_code=500, detail="No groceries found in LLM response")
+        groceries = json.loads(groceries_match.group(1).strip())
+
+        # --- Image Generation ---
+        image_model = genai.GenerativeModel('imagen-3') # Using a hypothetical powerful image model
         
-        groceries_json_str = groceries_match.group(1).strip()
-        groceries = json.loads(groceries_json_str)
-        
-        # Ensure users_data directory exists
+        recipe_images_dir = os.path.join('frontend', 'static', 'images', 'recipes')
+        os.makedirs(recipe_images_dir, exist_ok=True)
+
+        for meal in meal_plan:
+            image_prompt = meal.get("image_prompt")
+            if image_prompt:
+                try:
+                    # Generate the image from the prompt provided by the meal plan
+                    image_response = image_model.generate_content(image_prompt)
+                    
+                    # Assuming the response contains accessible image data
+                    if hasattr(image_response, 'media') and image_response.media:
+                        image_data = image_response.media[0].data
+                        img = Image.open(io.BytesIO(image_data))
+                        
+                        # Save the image with a unique name
+                        image_filename = f"{uuid.uuid4()}.png"
+                        image_path = os.path.join(recipe_images_dir, image_filename)
+                        img.save(image_path)
+
+                        # Add the relative URL to the meal object for frontend access
+                        meal['image_url'] = f"/images/recipes/{image_filename}"
+                    else:
+                        meal['image_url'] = None # No image was generated
+                except Exception as e:
+                    print(f"Error generating image for '{meal.get('meal_name')}': {e}")
+                    meal['image_url'] = None # Set to null on failure
+
+        # --- Save Data ---
         users_data_dir = os.path.join('backend', 'users_data')
         os.makedirs(users_data_dir, exist_ok=True)
         
-        # Create user-specific subdirectory if using user_id
-        if user_id != "default":
-            user_dir = os.path.join(users_data_dir, user_id)
-            os.makedirs(user_dir, exist_ok=True)
-            meal_plan_path = os.path.join(user_dir, 'meal_plan.json')
-            groceries_path = os.path.join(user_dir, 'groceries.json')
-        else:
-            meal_plan_path = os.path.join(users_data_dir, 'meal_plan.json')
-            groceries_path = os.path.join(users_data_dir, 'groceries.json')
-        
-        # Save meal plan to JSON file
+        user_dir = os.path.join(users_data_dir, user_id) if user_id != "default" else users_data_dir
+        os.makedirs(user_dir, exist_ok=True)
+
+        meal_plan_path = os.path.join(user_dir, 'meal_plan.json')
+        groceries_path = os.path.join(user_dir, 'groceries.json')
+
         with open(meal_plan_path, 'w') as f:
             json.dump(meal_plan, f, indent=2)
         
-        # Save groceries to JSON file
         with open(groceries_path, 'w') as f:
             json.dump(groceries, f, indent=2)
-        
-        print(f"Meal plan saved to: {meal_plan_path}")
-        print(f"Groceries saved to: {groceries_path}")
-        
+            
         return {
             "meal_plan": meal_plan,
             "groceries": groceries,
-            "files_saved": {
-                "meal_plan_path": meal_plan_path,
-                "groceries_path": groceries_path
-            }
+            "files_saved": {"meal_plan_path": meal_plan_path, "groceries_path": groceries_path}
         }
         
-    except json.JSONDecodeError as e:
-        raise HTTPException(status_code=500, detail=f"Failed to parse JSON from LLM response: {str(e)}")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error parsing LLM response: {str(e)}")
+    except (json.JSONDecodeError, Exception) as e:
+        raise HTTPException(status_code=500, detail=f"Error parsing LLM response or generating images: {str(e)}")
 
+# --- API Endpoints ---
 @onboarding_router.get("/get_nutrition_goals")
 async def get_nutrition_goals():
     return nutrition_goals
@@ -227,6 +273,7 @@ async def get_food_preferences():
     
 @onboarding_router.post("/submit_onboarding")
 async def submit_onboarding(onboarding_data: OnboardingRequest):
+<<<<<<< Updated upstream
     try:
         prompt = get_prompt_for_meal_plan_groceries(onboarding_data)
         print(prompt)
@@ -266,3 +313,19 @@ async def submit_onboarding(onboarding_data: OnboardingRequest):
     except Exception as e:
         print(f"Error in submit_onboarding: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error processing onboarding request: {str(e)}")
+=======
+    prompt = get_prompt_for_meal_plan_groceries(onboarding_data)
+    
+    # Use the new text generation model for creating the plan
+    text_model = genai.GenerativeModel('gemini-2.5-pro')
+    response = text_model.generate_content(prompt)
+
+    parsed_data = parse_llm_response_and_save(response.text)
+    
+    return {
+        "message": "Onboarding data processed successfully",
+        "meal_plan_count": len(parsed_data["meal_plan"]),
+        "groceries_count": len(parsed_data["groceries"]),
+        "files_saved": parsed_data["files_saved"]
+    }
+>>>>>>> Stashed changes

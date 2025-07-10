@@ -1,11 +1,11 @@
 from backend.models import OnboardingRequest
 
-def get_prompt_for_meal_plan_groceries(onboarding_data: OnboardingRequest) -> str:
+def get_prompt_for_meal_plan_groceries(onboarding_data):
     """
-    Generates a detailed prompt for a meal plan generator AI 
+    Generates a detailed prompt for a meal plan generator AI
     based on the user's onboarding data.
     """
-    
+
     # Start building the 'inputs' part of the prompt
     inputs = [
         f"- **Budget:** ${onboarding_data.money_to_spend_per_week} per week",
@@ -42,7 +42,7 @@ def get_prompt_for_meal_plan_groceries(onboarding_data: OnboardingRequest) -> st
     # Join the parts to form the final prompt sections
     inputs_section = "\n    ".join(inputs)
     tasks_section = "\n    ".join(tasks)
-    
+
     prompt = f"""
     You are an expert meal plan generator.
 
@@ -51,44 +51,33 @@ def get_prompt_for_meal_plan_groceries(onboarding_data: OnboardingRequest) -> st
 
     **Your task is as follows:**
 
-    **1. Generate a 7-day meal plan.**
+    **1. Generate a 7-day meal plan and a corresponding grocery list.**
     {tasks_section}
 
-    **2. Format the output correctly:**
-    - The entire output must be a single array of JSON objects.
-    - Each object in the array represents a meal and must have the following keys:
+    **2. Format the output correctly into two distinct JSON arrays, each wrapped in XML tags.**
+
+    **A. Meal Plan:**
+    - The meal plan must be a single array of JSON objects.
+    - Each object represents a meal and must have the following keys:
         - "meal_name": A descriptive name for the meal.
-        - "date_at_which_meal_should_be_cooked": The suggested date for cooking the meal (e.g., "Day 1", "2024-07-10").
+        - "image_prompt": A short, descriptive prompt for an image generation AI to create a photo of the final dish (e.g., "A vibrant bowl of spicy shrimp stir-fry with fresh vegetables on a dark plate").
+        - "date_at_which_meal_should_be_cooked": The suggested date (e.g., "Day 1").
         - "ingredients": A list of all ingredients required.
-        - "time_to_prepare": Estimated preparation and cooking time in minutes.
+        - "time_to_prepare": Estimated time in minutes.
         - "steps_to_prepare": A list of step-by-step instructions.
-        - "tips_and_tricks": Optional tips or variations for the recipe.
+        - "tips_and_tricks": Optional tips or variations.
         - "appliances_and_utensils": A list of necessary kitchen tools.
+    - **Wrap the entire JSON array in `<meal>` and `</meal>` tags.**
 
-    **3. Enclose the entire JSON array in `<meal>` and `</meal>` tags.**
-
-    **Example of a single meal object:**
-    {{
-        "meal_name": "Quick Lemon Herb Chicken",
-        "date_at_which_meal_should_be_cooked": "Day 1",
-        "ingredients": ["1 lb chicken breast", "1 lemon", "1 tbsp olive oil", "herbs"],
-        "time_to_prepare": 20,
-        "steps_to_prepare": ["1. Preheat oven...", "2. Season chicken..."],
-        "tips_and_tricks": "Goes well with a side of steamed vegetables.",
-        "appliances_and_utensils": ["baking sheet", "oven", "knife"]
-    }}
-
-    4. **Generate a grocery list**:
+    **B. Grocery List:**
     - The grocery list must be a JSON array of objects.
-    - Each object in the array represents a grocery item and must have the following keys:
-        - "item_name": The name of the grocery item as a string.
-        - "quantity": The quantity of the grocery item as a string.
-        - "estimated_cost": The estimated price of the grocery item as float.
-    - Include all grocery items needed for the meal plan.
-    - Only include groceries that can be purchased from supermarkets within {onboarding_data.money_to_spend_per_week} per week.
-    - **Wrap the grocery list in XML tags**:  
-      `<groceries>[ ...grocery list here... ]</groceries>`
-    
-    **CRITICAL: Your final output must only be the XML block containing the JSON array. Do not include any other text, explanations, or markdown formatting.**
+    - Each object must have the following keys:
+        - "item_name": The name of the grocery item.
+        - "quantity": The amount needed (e.g., "2 lbs", "1 carton").
+        - "estimated_cost": An estimated cost in USD (as a number, not a string).
+    - The total estimated cost of all groceries must not exceed the user's budget of ${onboarding_data.money_to_spend_per_week}.
+    - **Wrap the entire JSON array in `<groceries>` and `</groceries>` tags.**
+
+    **CRITICAL: Your final output must only be the two XML blocks. Do not include any other text, explanations, or markdown formatting between or around them.**
     """
     return prompt.strip()
