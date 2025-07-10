@@ -75,6 +75,17 @@ def get_prompt_for_meal_plan_groceries(onboarding_data):
         "tips_and_tricks": "Goes well with a side of steamed vegetables.",
         "appliances_and_utensils": ["baking sheet", "oven", "knife"]
     }}
+
+    4. **Generate a grocery list**:
+    - The grocery list must be a JSON array of objects.
+    - Each object in the array represents a grocery item and must have the following keys:
+        - "item_name": The name of the grocery item as a string.
+        - "quantity": The quantity of the grocery item as a string.
+        - "estimated_cost": The estimated price of the grocery item as float.
+    - Include all grocery items needed for the meal plan.
+    - Only include groceries that can be purchased from supermarkets within {onboarding_data.money_to_spend_per_week} per week.
+    - **Wrap the grocery list in XML tags**:  
+      `<groceries>[ ...grocery list here... ]</groceries>`
     
     **CRITICAL: Your final output must only be the XML block containing the JSON array. Do not include any other text, explanations, or markdown formatting.**
     """
