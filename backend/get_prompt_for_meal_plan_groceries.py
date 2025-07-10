@@ -1,4 +1,6 @@
-def get_prompt_for_meal_plan_groceries(onboarding_data):
+from backend.models import OnboardingRequest
+
+def get_prompt_for_meal_plan_groceries(onboarding_data: OnboardingRequest) -> str:
     """
     Generates a detailed prompt for a meal plan generator AI 
     based on the user's onboarding data.
