@@ -1,0 +1,254 @@
+[
+  {
+    "meal_name": "High-Protein Scrambled Eggs & Spinach",
+    "date_at_which_meal_should_be_cooked": "Breakfast (e.g., Day 1, 3, 5)",
+    "ingredients": [
+      "3 large eggs",
+      "1 cup baby spinach",
+      "1 tbsp olive oil",
+      "Salt and pepper to taste",
+      "1 oz shredded cheese (optional)"
+    ],
+    "time_to_prepare": 10,
+    "steps_to_prepare": [
+      "1. Crack eggs into a bowl, add a splash of water or milk, and whisk until frothy. Season with salt and pepper.",
+      "2. Heat olive oil in a non-stick skillet over medium heat.",
+      "3. Add the spinach and cook for 1-2 minutes until wilted.",
+      "4. Pour the egg mixture over the spinach.",
+      "5. Gently stir and fold the eggs as they cook until they reach your desired doneness (about 3-4 minutes).",
+      "6. If using, sprinkle cheese over the top during the last minute of cooking."
+    ],
+    "tips_and_tricks": "For extra protein, add a scoop of unflavored protein powder to the eggs before whisking. Serve with a slice of whole-wheat toast if it fits your macros.",
+    "appliances_and_utensils": [
+      "Non-stick skillet",
+      "Spatula",
+      "Bowl",
+      "Whisk"
+    ]
+  },
+  {
+    "meal_name": "Quick Toasted Bagel with Cream Cheese",
+    "date_at_which_meal_should_be_cooked": "Breakfast (e.g., Day 2, 4, 6)",
+    "ingredients": [
+      "1 bagel",
+      "2 tbsp cream cheese"
+    ],
+    "time_to_prepare": 5,
+    "steps_to_prepare": [
+      "1. Slice the bagel in half.",
+      "2. Toast the bagel to your desired level of crispness using a toaster or in a pan.",
+      "3. Spread cream cheese evenly on both halves of the warm bagel.",
+      "4. Serve immediately."
+    ],
+    "tips_and_tricks": "Choose whole wheat bagels for more fiber and sustained energy. Add a sprinkle of everything bagel seasoning for extra flavor.",
+    "appliances_and_utensils": [
+      "Toaster or pan",
+      "Knife"
+    ]
+  },
+  {
+    "meal_name": "Speedy Ground Turkey Burrito Bowls",
+    "date_at_which_meal_should_be_cooked": "Day 1",
+    "ingredients": [
+      "1 lb ground turkey",
+      "1 packet taco seasoning",
+      "1 tbsp olive oil",
+      "1 can (15oz) black beans, rinsed",
+      "2 cups cooked rice",
+      "1 cup shredded lettuce",
+      "1/2 cup shredded Mexican cheese",
+      "1/2 cup salsa"
+    ],
+    "time_to_prepare": 20,
+    "steps_to_prepare": [
+      "1. Heat olive oil in a large skillet over medium-high heat. Add ground turkey and cook, breaking it apart, until no longer pink (about 7-8 minutes).",
+      "2. Drain any excess fat. Stir in the taco seasoning and 1/4 cup of water. Simmer for 3-4 minutes until the sauce has thickened.",
+      "3. While turkey cooks, heat black beans and cooked rice in the microwave.",
+      "4. Assemble your bowls: Divide the rice among bowls, then top with the cooked turkey, black beans, shredded lettuce, cheese, and salsa.",
+      "5. Save half of the cooked turkey for Turkey Tacos later in the week."
+    ],
+    "tips_and_tricks": "To save time, use pre-cooked rice pouches. This bowl is great for meal prep; store components separately and assemble before eating.",
+    "appliances_and_utensils": [
+      "Large skillet",
+      "Spatula",
+      "Microwave-safe bowls",
+      "Can opener"
+    ]
+  },
+  {
+    "meal_name": "Quick Chicken Teriyaki & Veggie Bowl",
+    "date_at_which_meal_should_be_cooked": "Day 2",
+    "ingredients": [
+      "1 lb chicken breast, cut into bite-sized pieces",
+      "1 tbsp olive oil",
+      "2 cups frozen stir-fry vegetable mix",
+      "1/2 cup teriyaki sauce",
+      "2 cups cooked rice"
+    ],
+    "time_to_prepare": 18,
+    "steps_to_prepare": [
+      "1. Heat olive oil in a wok or large skillet over high heat.",
+      "2. Add the chicken pieces and stir-fry for 5-7 minutes until golden and cooked through.",
+      "3. Add the frozen vegetables to the skillet and cook for another 4-5 minutes, stirring frequently, until crisp-tender.",
+      "4. Reduce heat to low, pour in the teriyaki sauce, and stir to coat everything evenly. Let it simmer for 1-2 minutes.",
+      "5. Serve immediately over a bed of warm rice.",
+      "6. Set aside about 1/3 of the chicken and veggies for the Upgraded Ramen meal."
+    ],
+    "tips_and_tricks": "For a flavor boost, add minced garlic or ginger with the chicken. A sprinkle of sesame seeds on top adds a nice touch.",
+    "appliances_and_utensils": [
+      "Wok or large skillet",
+      "Spatula",
+      "Knife",
+      "Cutting board"
+    ]
+  },
+  {
+    "meal_name": "Upgraded Instant Ramen",
+    "date_at_which_meal_should_be_cooked": "Day 3",
+    "ingredients": [
+      "1 packet instant ramen",
+      "1 large egg",
+      "1 cup leftover Teriyaki Chicken",
+      "1/2 cup baby spinach"
+    ],
+    "time_to_prepare": 12,
+    "steps_to_prepare": [
+      "1. In a small pot, bring 2 cups of water to a boil. Gently add the egg and cook for 7 minutes for a jammy yolk. Remove with a slotted spoon and run under cold water.",
+      "2. In the same pot, cook the instant ramen noodles according to package directions, adding the flavor packet.",
+      "3. During the last minute of cooking, stir in the baby spinach until it wilts.",
+      "4. Pour the ramen and broth into a bowl. Top with the leftover teriyaki chicken (reheated).",
+      "5. Peel the soft-boiled egg, slice it in half, and add it to the bowl."
+    ],
+    "tips_and_tricks": "This meal is designed to use leftovers, making it extremely fast. You can add other leftover veggies as well.",
+    "appliances_and_utensils": [
+      "Small pot",
+      "Slotted spoon",
+      "Bowl"
+    ]
+  },
+  {
+    "meal_name": "Quick 'General Tso's' Chicken Stir-fry",
+    "date_at_which_meal_should_be_cooked": "Day 4",
+    "ingredients": [
+      "1 lb chicken breast, cut into bite-sized pieces",
+      "1 tbsp olive oil",
+      "1/2 onion, sliced",
+      "1/2 bell pepper, sliced",
+      "1/2 cup General Tso's sauce",
+      "2 cups cooked rice"
+    ],
+    "time_to_prepare": 20,
+    "steps_to_prepare": [
+      "1. Heat olive oil in a large skillet over medium-high heat.",
+      "2. Add the chicken pieces and cook until golden brown and cooked through, about 5-7 minutes.",
+      "3. Add the sliced onion and bell pepper to the skillet and cook for 4-5 minutes until they begin to soften.",
+      "4. Pour the General Tso's sauce over the chicken and vegetables. Stir to coat and allow to simmer for 2-3 minutes until the sauce thickens slightly.",
+      "5. Serve hot over freshly cooked rice."
+    ],
+    "tips_and_tricks": "Use a bag of frozen stir-fry vegetables instead of fresh onion and pepper to save even more prep time.",
+    "appliances_and_utensils": [
+      "Large skillet",
+      "Spatula",
+      "Knife",
+      "Cutting board"
+    ]
+  },
+  {
+    "meal_name": "20-Minute Turkey Tacos",
+    "date_at_which_meal_should_be_cooked": "Day 5",
+    "ingredients": [
+      "Leftover cooked ground turkey from Day 1",
+      "6-8 small flour tortillas",
+      "1 cup shredded lettuce",
+      "1/2 cup shredded Mexican cheese",
+      "1/2 cup salsa"
+    ],
+    "time_to_prepare": 10,
+    "steps_to_prepare": [
+      "1. Reheat the leftover seasoned ground turkey in a skillet or the microwave until hot.",
+      "2. Warm the flour tortillas in a dry pan for 30 seconds per side, or in the microwave for 30-45 seconds.",
+      "3. Assemble the tacos: Spoon the warm turkey into the tortillas.",
+      "4. Top with shredded lettuce, cheese, and salsa.",
+      "5. Serve immediately."
+    ],
+    "tips_and_tricks": "Add a dollop of Greek yogurt instead of sour cream for a high-protein, healthier alternative.",
+    "appliances_and_utensils": [
+      "Skillet or microwave",
+      "Tongs"
+    ]
+  },
+  {
+    "meal_name": "Classic Hot Dogs & Side Salad",
+    "date_at_which_meal_should_be_cooked": "Day 6",
+    "ingredients": [
+      "4 hot dogs",
+      "4 hot dog buns",
+      "2 cups shredded lettuce",
+      "Leftover veggies (e.g., sliced onion, bell pepper)",
+      "2 tbsp olive oil (for dressing)",
+      "1 tbsp vinegar (optional, for dressing)"
+    ],
+    "time_to_prepare": 15,
+    "steps_to_prepare": [
+      "1. Cook hot dogs using your preferred method: pan-fry in a little oil for 5-7 minutes, or boil in water for 4-6 minutes.",
+      "2. Lightly toast the hot dog buns in a pan or toaster oven.",
+      "3. While hot dogs cook, prepare the side salad. In a bowl, toss the shredded lettuce and any leftover chopped veggies.",
+      "4. Whisk together olive oil, vinegar (if using), salt, and pepper for a simple vinaigrette and toss with the salad.",
+      "5. Place cooked hot dogs in the buns and serve with the side salad."
+    ],
+    "tips_and_tricks": "Choose nitrate-free or chicken/turkey hot dogs for a healthier option. Add your favorite condiments like mustard or ketchup.",
+    "appliances_and_utensils": [
+      "Skillet or pot",
+      "Tongs",
+      "Salad bowl"
+    ]
+  },
+  {
+    "meal_name": "Pantry Cleanout 'Pepperoni' Pizza Tortillas",
+    "date_at_which_meal_should_be_cooked": "Day 7",
+    "ingredients": [
+      "2 large flour tortillas",
+      "1/4 cup salsa or tomato sauce",
+      "1/2 cup shredded Mexican cheese",
+      "Optional toppings: leftover cooked meat, leftover veggies"
+    ],
+    "time_to_prepare": 12,
+    "steps_to_prepare": [
+      "1. Preheat your oven broiler or a toaster oven to high. You can also do this in a large, dry skillet on the stovetop.",
+      "2. Place tortillas on a baking sheet.",
+      "3. Spread a thin layer of salsa or tomato sauce over each tortilla, leaving a small border.",
+      "4. Sprinkle evenly with shredded cheese.",
+      "5. Add any leftover cooked meats (like hot dogs, turkey, or chicken) or veggies you have on hand. For a 'pepperoni' flavor, use thinly sliced hot dogs.",
+      "6. Broil for 2-4 minutes, or pan-fry on medium heat, until the cheese is bubbly and the tortilla is crisp. Watch carefully to prevent burning."
+    ],
+    "tips_and_tricks": "This is a perfect end-of-week meal to use up any remaining ingredients. Almost anything can be a pizza topping!",
+    "appliances_and_utensils": [
+      "Baking sheet",
+      "Oven with broiler or Toaster Oven or Skillet",
+      "Spoon"
+    ]
+  },
+  {
+    "meal_name": "5-Minute Mug Brownie",
+    "date_at_which_meal_should_be_cooked": "Dessert (as desired)",
+    "ingredients": [
+      "4 tbsp brownie mix",
+      "2 tbsp water",
+      "1 tsp olive oil"
+    ],
+    "time_to_prepare": 5,
+    "steps_to_prepare": [
+      "1. In a microwave-safe mug, add the brownie mix, water, and olive oil.",
+      "2. Stir with a fork until just combined. Do not overmix.",
+      "3. Microwave on high for 60-90 seconds. The brownie will puff up and should look cooked but still be slightly gooey in the center.",
+      "4. Let it cool for a minute before eating. Be careful, the mug will be hot.",
+      "5. Top with a small scoop of Greek yogurt if desired."
+    ],
+    "tips_and_tricks": "Use a standard-sized coffee mug to prevent overflow. If you don't have brownie mix, you can make it from scratch with flour, sugar, cocoa powder, oil, and water.",
+    "appliances_and_utensils": [
+      "Microwave-safe mug",
+      "Fork",
+      "Measuring spoons"
+    ]
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "item_name": "Chicken Breast, Boneless Skinless",
+    "quantity": "2 lbs",
+    "estimated_cost": 10.0
+  },
+  {
+    "item_name": "Ground Turkey",
+    "quantity": "1 lb",
+    "estimated_cost": 5.0
+  },
+  {
+    "item_name": "Hot Dogs",
+    "quantity": "1 pack (8 count)",
+    "estimated_cost": 4.0
+  },
+  {
+    "item_name": "Large Eggs",
+    "quantity": "1 dozen",
+    "estimated_cost": 3.5
+  },
+  {
+    "item_name": "Bagels",
+    "quantity": "1 pack (6 count)",
+    "estimated_cost": 4.0
+  },
+  {
+    "item_name": "Large Flour Tortillas",
+    "quantity": "1 pack (10 count)",
+    "estimated_cost": 3.5
+  },
+  {
+    "item_name": "Instant Ramen Noodles",
+    "quantity": "2 packs",
+    "estimated_cost": 1.5
+  },
+  {
+    "item_name": "Long-Grain White Rice",
+    "quantity": "2 lb bag",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Hot Dog Buns",
+    "quantity": "1 pack (8 count)",
+    "estimated_cost": 2.5
+  },
+  {
+    "item_name": "Brownie Mix",
+    "quantity": "1 box",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Yellow Onion",
+    "quantity": "1 large",
+    "estimated_cost": 1.0
+  },
+  {
+    "item_name": "Bell Pepper (any color)",
+    "quantity": "1",
+    "estimated_cost": 1.5
+  },
+  {
+    "item_name": "Baby Spinach",
+    "quantity": "1 bag (5oz)",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Shredded Lettuce",
+    "quantity": "1 bag",
+    "estimated_cost": 2.5
+  },
+  {
+    "item_name": "Frozen Stir-Fry Vegetable Mix",
+    "quantity": "1 bag (12-16oz)",
+    "estimated_cost": 3.5
+  },
+  {
+    "item_name": "Cream Cheese",
+    "quantity": "1 tub (8oz)",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Plain Greek Yogurt",
+    "quantity": "1 large tub (32oz)",
+    "estimated_cost": 5.0
+  },
+  {
+    "item_name": "Shredded Mexican Cheese Blend",
+    "quantity": "1 bag (8oz)",
+    "estimated_cost": 4.0
+  },
+  {
+    "item_name": "Canned Black Beans",
+    "quantity": "1 can (15oz)",
+    "estimated_cost": 1.0
+  },
+  {
+    "item_name": "Taco Seasoning Mix",
+    "quantity": "1 packet",
+    "estimated_cost": 1.0
+  },
+  {
+    "item_name": "Teriyaki Sauce",
+    "quantity": "1 bottle",
+    "estimated_cost": 3.5
+  },
+  {
+    "item_name": "General Tso's Sauce",
+    "quantity": "1 bottle",
+    "estimated_cost": 3.5
+  },
+  {
+    "item_name": "Salsa",
+    "quantity": "1 jar (16oz)",
+    "estimated_cost": 3.0
+  },
+  {
+    "item_name": "Olive Oil",
+    "quantity": "1 small bottle",
+    "estimated_cost": 4.0
+  }
+]
