@@ -23,6 +23,12 @@
 
 This project is for students who want to eat well but are constrained by time and a tight budget. We aim to solve the "what to cook?" problem by providing personalized, affordable, and quick-to-prepare meal plans. Our goal is to make healthy eating accessible, reduce food waste, and eliminate the stress of daily meal planning.
 
+## 🎥 Video Demo
+
+Check out the video demo of our project MVP:
+
+[![Broke n' Hungry Demo](https://img.youtube.com/vi/aVz0dD2MiGk/0.jpg)](https://youtu.be/aVz0dD2MiGk?si=fquaQXW63RXmFEl9)
+
 ## ✨ How It Works
 
 The process is simple. You provide the application with some key information, and our AI-powered backend does the rest.
