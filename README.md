@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://img.shields.io/badge/svelte-%23f1413d.svg?style=for-the-badge&logo=svelte&logoColor=white" alt="Svelte" />
-  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
   <img src="https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python" />
   <img src="https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Google%20Gemini-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Google Gemini" />
@@ -64,7 +64,7 @@ This project is built with a modern, powerful stack to deliver a seamless user e
 | Technology                                                                                                  | Description                              |
 | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
 | **[SvelteKit](https://kit.svelte.dev/)**                                                                    | A cutting-edge framework for building fast, modern web applications. |
-| **[TypeScript](https://www.typescriptlang.org/)**                                                           | For robust, type-safe code.              |
+| **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**                                   | For building interactive web applications. |
 | **[Vite](https://vitejs.dev/)**                                                                             | A next-generation frontend tooling for a blazing-fast development experience. |
 
 ### Backend
