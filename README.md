@@ -129,5 +129,5 @@ Follow these instructions to get the project up and running on your local machin
 ---
 
 <p align="center">
-  Made with ❤️ for food lovers everywhere.
+  Made with ❤️ for food lovers everywhere. 
 </p> 

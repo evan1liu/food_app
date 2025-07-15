@@ -20,6 +20,7 @@ app.add_middleware(
 )
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 # Create images directory if it doesn't exist
 images_dir = os.path.join("backend", "images")
 os.makedirs(images_dir, exist_ok=True)
@@ -30,6 +31,8 @@ app.mount("/images", StaticFiles(directory=images_dir), name="images")
 # Include the API router
 app.include_router(api_router, prefix="/api")
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 

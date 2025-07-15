@@ -2,9 +2,13 @@ import os
 import json
 import re
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import base64
 import asyncio
 from typing import Dict, List, Optional
+=======
+import uuid
+>>>>>>> Stashed changes
 =======
 import uuid
 >>>>>>> Stashed changes
@@ -16,6 +20,7 @@ from backend.models import OnboardingRequest
 from dotenv import load_dotenv
 from google import genai
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 from google.genai import types
 from io import BytesIO
 
@@ -26,6 +31,17 @@ client = genai.Client()
 from PIL import Image
 import io
 
+=======
+from PIL import Image
+import io
+
+
+load_dotenv()
+
+# Configure the Gemini client
+# Make sure your GOOGLE_API_KEY is set in your .env file
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+>>>>>>> Stashed changes
 
 load_dotenv()
 
@@ -51,6 +67,7 @@ with open(os.path.join('backend', 'onboarding_data', 'food_preferences.json'), '
 
 async def generate_meal_image(meal_name: str, meal_index: int) -> Dict[str, Optional[str]]:
     """
+<<<<<<< Updated upstream
     Generate an image for a meal using Imagen 4 with landscape aspect ratio.
     """
     try:
@@ -183,6 +200,11 @@ def parse_llm_response_and_save(response_text: str, user_id: str = "default", me
     Parse the LLM response, generate images for each meal, and save all data.
     """
     try:
+=======
+    Parse the LLM response, generate images for each meal, and save all data.
+    """
+    try:
+>>>>>>> Stashed changes
         # Extract meal plan
         meal_pattern = r'<meal>\s*(.*?)\s*</meal>'
         meal_match = re.search(meal_pattern, response_text, re.DOTALL)
@@ -191,6 +213,9 @@ def parse_llm_response_and_save(response_text: str, user_id: str = "default", me
         meal_plan = json.loads(meal_match.group(1).strip())
 
         # Extract groceries
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         groceries_pattern = r'<groceries>\s*(.*?)\s*</groceries>'
         groceries_match = re.search(groceries_pattern, response_text, re.DOTALL)
@@ -274,6 +299,7 @@ async def get_food_preferences():
 @onboarding_router.post("/submit_onboarding")
 async def submit_onboarding(onboarding_data: OnboardingRequest):
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     try:
         prompt = get_prompt_for_meal_plan_groceries(onboarding_data)
         print(prompt)
@@ -320,6 +346,14 @@ async def submit_onboarding(onboarding_data: OnboardingRequest):
     text_model = genai.GenerativeModel('gemini-2.5-pro')
     response = text_model.generate_content(prompt)
 
+=======
+    prompt = get_prompt_for_meal_plan_groceries(onboarding_data)
+    
+    # Use the new text generation model for creating the plan
+    text_model = genai.GenerativeModel('gemini-2.5-pro')
+    response = text_model.generate_content(prompt)
+
+>>>>>>> Stashed changes
     parsed_data = parse_llm_response_and_save(response.text)
     
     return {
