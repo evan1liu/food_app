@@ -11,7 +11,7 @@
         try {
             loading = true;
             error = '';
-            const response = await fetch('http://127.0.0.1:8000/api/onboarding/get_allergies');
+            const response = await fetch('http://127.0.0.1:8000/api/onboarding/allergies');
             if (response.ok) {
                 allergies = await response.json();
             } else {

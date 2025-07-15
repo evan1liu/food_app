@@ -9,7 +9,7 @@
         try {
             loading = true;
             error = '';
-            const response = await fetch('http://127.0.0.1:8000/api/onboarding/get_nutrition_goals');
+            const response = await fetch('http://127.0.0.1:8000/api/onboarding/nutrition_goals');
             if (response.ok) {
                 nutritionGoals = await response.json();
             } else {

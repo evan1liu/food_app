@@ -1,4 +1,4 @@
-from backend.models import OnboardingRequest
+from models import OnboardingRequest
 
 def get_prompt_for_meal_plan_groceries(onboarding_data):
     """

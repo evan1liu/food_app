@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from backend.onboarding_routes import onboarding_router
-from backend.home_routes import home_router
+from onboarding_routes import onboarding_router
+from home_routes import home_router
 
 api_router = APIRouter()
 

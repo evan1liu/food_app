@@ -21,7 +21,7 @@
         try {
             loading = true;
             error = '';
-            const response = await fetch('http://127.0.0.1:8000/api/onboarding/get_food_preferences');
+            const response = await fetch('http://127.0.0.1:8000/api/onboarding/food_preferences');
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

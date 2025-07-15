@@ -12,7 +12,7 @@
     // Fetch food restrictions from backend
     async function fetchFoodRestrictions() {
         try {
-            const response = await fetch('http://127.0.0.1:8000/api/onboarding/get_food_restrictions');
+            const response = await fetch('http://127.0.0.1:8000/api/onboarding/food_restrictions');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

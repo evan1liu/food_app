@@ -1,12 +1,19 @@
+import sys
+import os
+
+# Add the virtual environment's site-packages to the system path
+venv_path = os.path.join(os.path.dirname(__file__), '..', '.venv', 'Lib', 'site-packages')
+if os.path.exists(venv_path):
+    sys.path.insert(0, venv_path)
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-import os
 
 from pydantic import BaseModel
-from backend.routers import api_router
-from backend.home_routes import home_router
-from backend.onboarding_routes import onboarding_router
+from routers import api_router
+from home_routes import home_router
+from onboarding_routes import onboarding_router
 
 app = FastAPI()
 
@@ -19,8 +26,6 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 # Create images directory if it doesn't exist
 images_dir = os.path.join("backend", "images")
 os.makedirs(images_dir, exist_ok=True)
@@ -31,11 +36,6 @@ app.mount("/images", StaticFiles(directory=images_dir), name="images")
 # Include the API router
 app.include_router(api_router, prefix="/api")
 
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the Food App API"}
@@ -45,15 +45,6 @@ def read_root():
 app.include_router(onboarding_router, prefix="/api/onboarding", tags=["onboarding"])
 app.include_router(home_router, prefix="/api", tags=["home"])
 
-
-class MealCategoryRequest(BaseModel):
-    meal_category: str
-
-@app.post("/meal_category")
-async def print_meal_category(request: MealCategoryRequest):
-    print(request.meal_category)
-    
-    return f"{request.meal_category} successfully printed"
 
 class OnboardingRequest(BaseModel):
     time_to_cook_per_day: float
